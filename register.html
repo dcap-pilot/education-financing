@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DCAP | Register</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {
+                    "tertiary-fixed": "#b8f1af",
+                    "surface-container-high": "#d6ecf0",
+                    "secondary-container": "#486aea",
+                    "outline-variant": "#c8c4d5",
+                    "surface": "#edfcff",
+                    "on-secondary-container": "#fffbff",
+                    "tertiary-container": "#01380a",
+                    "inverse-surface": "#203337",
+                    "primary-fixed-dim": "#c6bfff",
+                    "on-tertiary-fixed": "#002204",
+                    "surface-container-highest": "#d1e6ea",
+                    "on-tertiary-container": "#6ea469",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#001453",
+                    "secondary-fixed-dim": "#b8c4ff",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#594dc1",
+                    "surface-container-low": "#e2f8fc",
+                    "secondary": "#294fd0",
+                    "surface-container": "#dcf2f6",
+                    "tertiary": "#002003",
+                    "inverse-primary": "#c6bfff",
+                    "surface-dim": "#c8dee2",
+                    "surface-variant": "#d1e6ea",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#1e5120",
+                    "on-surface": "#0a1e22",
+                    "on-background": "#0a1e22",
+                    "surface-bright": "#edfcff",
+                    "primary": "#150062",
+                    "on-primary-fixed": "#160066",
+                    "primary-container": "#280f91",
+                    "outline": "#787584",
+                    "on-primary-container": "#9287ff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#9dd595",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#dff5f9",
+                    "primary-fixed": "#e4dfff",
+                    "on-primary-fixed-variant": "#4132a8",
+                    "background": "#edfcff",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#0037b9",
+                    "on-surface-variant": "#474553",
+                    "secondary-fixed": "#dde1ff"
+                },
+                "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+                },
+                "fontFamily": {
+                    "headline": ["DM Sans"],
+                    "body": ["DM Sans"],
+                    "label": ["DM Sans"]
+                }
+            },
+        },
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-nav {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+    }
+    .editorial-shadow {
+        box-shadow: 0 20px 40px rgba(21, 0, 98, 0.06);
+    }
+    input, select, textarea {
+        font-family: 'DM Sans', sans-serif;
+    }
+</style>
+</head>
+<body class="bg-background text-on-background font-body">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-[0_20px_40px_rgba(21,0,98,0.06)] h-20 flex items-center">
+<div class="flex justify-between items-center px-4 md:px-8 w-full max-w-7xl mx-auto">
+<a href="index.html" class="flex items-center">
+<img src="Logo_DCAP_Primary.png" alt="DCAP" class="h-10 w-auto"/>
+</a>
+<a href="index.html" class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-2 md:px-8 md:py-3 rounded-full font-label font-bold text-xs md:text-sm uppercase tracking-wider whitespace-nowrap active:scale-95 transition-transform hover:brightness-105">
+Back to Home
+</a>
+</div>
+</nav>
+
+<main class="pt-20">
+
+<!-- Header -->
+<section class="bg-gradient-to-br from-primary to-primary-container px-4 md:px-8 py-12 md:py-20 text-center">
+<div class="max-w-3xl mx-auto">
+<h1 class="text-3xl md:text-5xl font-black text-white font-headline tracking-tight mb-4">Register Interest</h1>
+<p class="text-on-primary-container text-base md:text-lg max-w-2xl mx-auto">Complete the form below to begin your education financing journey. All fields marked with <span class="text-tertiary-fixed">*</span> are required.</p>
+</div>
+</section>
+
+<!-- Form -->
+<section class="py-8 md:py-16 px-4 md:px-8">
+<form class="max-w-4xl mx-auto space-y-8 md:space-y-12" onsubmit="event.preventDefault(); alert('Thank you for registering! We will be in touch shortly.');">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PARENT 1 DETAILS -->
+<!-- ═══════════════════════════════════════ -->
+<fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
+<legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Parent / Guardian 1</legend>
+<p class="text-on-surface-variant text-sm mb-8 clear-both">Primary applicant details</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-1">Full Name <span class="text-error">*</span></label>
+<input type="text" required placeholder="As per IC / Passport" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Date of Birth <span class="text-error">*</span></label>
+<input type="date" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Gender <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>Male</option>
+<option>Female</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">IC No <span class="text-error">*</span></label>
+<input type="text" required placeholder="e.g. 880101-14-5678" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Marital Status <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>Single</option>
+<option>Married</option>
+<option>Widow</option>
+<option>Divorced</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Phone Number <span class="text-error">*</span></label>
+<input type="tel" required placeholder="e.g. 012-345 6789" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Email Address <span class="text-error">*</span></label>
+<input type="email" required placeholder="email@example.com" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-1">Current Address <span class="text-error">*</span></label>
+<textarea required rows="3" placeholder="Full residential address" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"></textarea>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Relationship to Student <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>Father</option>
+<option>Mother</option>
+</select>
+</div>
+</div>
+
+<!-- Employment sub-section -->
+<div class="border-t border-outline-variant/20 mt-8 pt-8">
+<h3 class="text-lg font-bold font-headline text-primary mb-5">Employment Details</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Employment Status <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>Employed (full-time)</option>
+<option>Employed (part-time)</option>
+<option>Self-employed</option>
+<option>Retired</option>
+<option>Homemaker</option>
+<option>Unemployed</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Occupation / Job Title</label>
+<input type="text" placeholder="e.g. Engineer" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Employer Name</label>
+<input type="text" placeholder="Company name" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Monthly Personal Income <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>&lt; RM5,000</option>
+<option>RM5,000 - RM10,000</option>
+<option>&gt; RM10,000</option>
+</select>
+</div>
+</div>
+</div>
+</fieldset>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PARENT 2 DETAILS -->
+<!-- ═══════════════════════════════════════ -->
+<fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
+<legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Parent / Guardian 2</legend>
+<p class="text-on-surface-variant text-sm mb-8 clear-both">Secondary parent or guardian details</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-1">Full Name <span class="text-error">*</span></label>
+<input type="text" required placeholder="As per IC / Passport" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Date of Birth <span class="text-error">*</span></label>
+<input type="date" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Gender <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>Male</option>
+<option>Female</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">IC No <span class="text-error">*</span></label>
+<input type="text" required placeholder="e.g. 880101-14-5678" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Marital Status <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>Single</option>
+<option>Married</option>
+<option>Widow</option>
+<option>Divorced</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Phone Number <span class="text-error">*</span></label>
+<input type="tel" required placeholder="e.g. 012-345 6789" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Email Address</label>
+<input type="email" placeholder="email@example.com" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-1">Current Address <span class="text-error">*</span></label>
+<div class="flex items-center gap-2 mb-2">
+<input type="checkbox" id="sameAddress" class="rounded border-outline-variant/40 text-secondary focus:ring-secondary"/>
+<label for="sameAddress" class="text-sm text-on-surface-variant">Same as Parent 1</label>
+</div>
+<textarea rows="3" placeholder="Full residential address" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"></textarea>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Relationship to Student <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>Father</option>
+<option>Mother</option>
+</select>
+</div>
+</div>
+
+<!-- Employment sub-section -->
+<div class="border-t border-outline-variant/20 mt-8 pt-8">
+<h3 class="text-lg font-bold font-headline text-primary mb-5">Employment Details</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Employment Status <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>Employed (full-time)</option>
+<option>Employed (part-time)</option>
+<option>Self-employed</option>
+<option>Retired</option>
+<option>Homemaker</option>
+<option>Unemployed</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Occupation / Job Title</label>
+<input type="text" placeholder="e.g. Engineer" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Employer Name</label>
+<input type="text" placeholder="Company name" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Monthly Personal Income <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>&lt; RM5,000</option>
+<option>RM5,000 - RM10,000</option>
+<option>&gt; RM10,000</option>
+</select>
+</div>
+</div>
+</div>
+</fieldset>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- HOUSEHOLD & FINANCING -->
+<!-- ═══════════════════════════════════════ -->
+<fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
+<legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Income &amp; Financing</legend>
+<p class="text-on-surface-variant text-sm mb-8 clear-both">Household income and financing preferences</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Household Income <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>&lt; RM5,000</option>
+<option>RM5,000 - RM10,000</option>
+<option>RM10,000 - RM20,000</option>
+<option>&gt; RM20,000</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Number of Dependents &amp; Children <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>More than 5</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Preferred Monthly Loan Commitment <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>&lt; RM600</option>
+<option>RM600 - RM800</option>
+<option>RM800 - RM1,000</option>
+<option>&gt; RM1,000</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Will you be applying for PTPTN? <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>Yes</option>
+<option>No</option>
+</select>
+</div>
+</div>
+</fieldset>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- STUDENT DETAILS -->
+<!-- ═══════════════════════════════════════ -->
+<fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
+<legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Student Details</legend>
+<p class="text-on-surface-variant text-sm mb-8 clear-both">Information about the student enrolling at APU</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-1">Student Name <span class="text-error">*</span></label>
+<input type="text" required placeholder="Full name as per IC" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Level of Study <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select</option>
+<option>Foundation</option>
+<option>Diploma</option>
+<option>Degree</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Course Name <span class="text-error">*</span></label>
+<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="">Select a course</option>
+<option>Diploma in ICT</option>
+<option>Diploma in Mechatronic Engineering</option>
+<option>Foundation (non-Engineering)</option>
+<option>Foundation (Engineering)</option>
+<option>Bachelor of Computer Science (Artificial Intelligence)</option>
+<option>Bachelor of Science in Computer Science (Cyber Security)</option>
+<option>Bachelor of Mechatronic Engineering</option>
+<option>Bachelor of Financial Technology</option>
+<option>Others</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Intake Date <span class="text-error">*</span></label>
+<input type="text" id="intakeDate" inputmode="numeric" required maxlength="5" placeholder="MM/YY" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+</div>
+</fieldset>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- CONSENT & SUBMIT -->
+<!-- ═══════════════════════════════════════ -->
+<fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
+<div class="flex items-start gap-3 mb-8">
+<input type="checkbox" id="consent" required class="mt-1 rounded border-outline-variant/40 text-secondary focus:ring-secondary"/>
+<label for="consent" class="text-sm text-on-surface-variant leading-relaxed">
+I consent to DCAP collecting and processing my personal data for the purpose of this application. I declare that all information provided is true and accurate to the best of my knowledge. <span class="text-error">*</span>
+</label>
+</div>
+<button type="submit" class="w-full bg-tertiary-fixed text-on-tertiary-fixed py-4 md:py-5 rounded-full font-label font-bold text-base md:text-lg uppercase tracking-wider hover:brightness-110 transition-all editorial-shadow active:scale-[0.98]">
+Submit Registration
+</button>
+<p class="text-center text-on-surface-variant text-xs mt-4">By submitting, you agree to our terms and conditions.</p>
+</fieldset>
+
+</form>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-primary w-full py-12 md:py-16 px-4 md:px-8">
+<div class="max-w-7xl mx-auto text-center">
+<img src="Logo_DCAP_Primary.png" alt="DCAP" class="h-8 w-auto brightness-0 invert mx-auto mb-4"/>
+<p class="text-slate-400 font-label text-xs uppercase tracking-wider">&copy; 2026 DCAP Digital. Your AI-Driven Path to Future Education.</p>
+</div>
+</footer>
+
+<script>
+document.getElementById('intakeDate').addEventListener('keydown', function(e) {
+    if (e.key === 'Backspace' && this.value.length === 4 && this.value[2] === '/') {
+        this.value = this.value.slice(0, 2);
+        e.preventDefault();
+    }
+});
+document.getElementById('intakeDate').addEventListener('input', function(e) {
+    let v = e.target.value.replace(/\D/g, '');
+    if (v.length >= 2) v = v.slice(0, 2) + '/' + v.slice(2, 4);
+    e.target.value = v;
+});
+</script>
+</body>
+</html>
