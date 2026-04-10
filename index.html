@@ -1,401 +1,962 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 
-<html class="scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DCAP | AI-Driven Education Financing</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "tertiary-fixed": "#b8f1af",
-                        "surface-container-high": "#d6ecf0",
-                        "secondary-container": "#486aea",
-                        "outline-variant": "#c8c4d5",
-                        "surface": "#edfcff",
-                        "on-secondary-container": "#fffbff",
-                        "tertiary-container": "#01380a",
-                        "inverse-surface": "#203337",
-                        "primary-fixed-dim": "#c6bfff",
-                        "on-tertiary-fixed": "#002204",
-                        "surface-container-highest": "#d1e6ea",
-                        "on-tertiary-container": "#6ea469",
-                        "surface-container-lowest": "#ffffff",
-                        "on-secondary": "#ffffff",
-                        "on-secondary-fixed": "#001453",
-                        "secondary-fixed-dim": "#b8c4ff",
-                        "error": "#ba1a1a",
-                        "surface-tint": "#594dc1",
-                        "surface-container-low": "#e2f8fc",
-                        "secondary": "#294fd0",
-                        "surface-container": "#dcf2f6",
-                        "tertiary": "#002003",
-                        "inverse-primary": "#c6bfff",
-                        "surface-dim": "#c8dee2",
-                        "surface-variant": "#d1e6ea",
-                        "error-container": "#ffdad6",
-                        "on-tertiary-fixed-variant": "#1e5120",
-                        "on-surface": "#0a1e22",
-                        "on-background": "#0a1e22",
-                        "surface-bright": "#edfcff",
-                        "primary": "#150062",
-                        "on-primary-fixed": "#160066",
-                        "primary-container": "#280f91",
-                        "outline": "#787584",
-                        "on-primary-container": "#9287ff",
-                        "on-tertiary": "#ffffff",
-                        "tertiary-fixed-dim": "#9dd595",
-                        "on-primary": "#ffffff",
-                        "inverse-on-surface": "#dff5f9",
-                        "primary-fixed": "#e4dfff",
-                        "on-primary-fixed-variant": "#4132a8",
-                        "background": "#edfcff",
-                        "on-error": "#ffffff",
-                        "on-error-container": "#93000a",
-                        "on-secondary-fixed-variant": "#0037b9",
-                        "on-surface-variant": "#474553",
-                        "secondary-fixed": "#dde1ff"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "fontFamily": {
-                        "headline": ["DM Sans"],
-                        "body": ["DM Sans"],
-                        "label": ["DM Sans"]
-                    }
-                },
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>DCAP | AI-Driven Education Financing</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#b8f1af",
+              "surface-container-high": "#d6ecf0",
+              "secondary-container": "#486aea",
+              "outline-variant": "#c8c4d5",
+              surface: "#edfcff",
+              "on-secondary-container": "#fffbff",
+              "tertiary-container": "#01380a",
+              "inverse-surface": "#203337",
+              "primary-fixed-dim": "#c6bfff",
+              "on-tertiary-fixed": "#002204",
+              "surface-container-highest": "#d1e6ea",
+              "on-tertiary-container": "#6ea469",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed": "#001453",
+              "secondary-fixed-dim": "#b8c4ff",
+              error: "#ba1a1a",
+              "surface-tint": "#594dc1",
+              "surface-container-low": "#e2f8fc",
+              secondary: "#294fd0",
+              "surface-container": "#dcf2f6",
+              tertiary: "#002003",
+              "inverse-primary": "#c6bfff",
+              "surface-dim": "#c8dee2",
+              "surface-variant": "#d1e6ea",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#1e5120",
+              "on-surface": "#0a1e22",
+              "on-background": "#0a1e22",
+              "surface-bright": "#edfcff",
+              primary: "#150062",
+              "on-primary-fixed": "#160066",
+              "primary-container": "#280f91",
+              outline: "#787584",
+              "on-primary-container": "#9287ff",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed-dim": "#9dd595",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#dff5f9",
+              "primary-fixed": "#e4dfff",
+              "on-primary-fixed-variant": "#4132a8",
+              background: "#edfcff",
+              "on-error": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#0037b9",
+              "on-surface-variant": "#474553",
+              "secondary-fixed": "#dde1ff",
             },
-        }
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["DM Sans", "sans-serif"],
+              body: ["DM Sans", "sans-serif"],
+              label: ["DM Sans", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-        }
-        .editorial-shadow {
-            box-shadow: 0 20px 40px rgba(21, 0, 98, 0.06);
-        }
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+      }
+      .editorial-shadow {
+        box-shadow: 0 20px 40px rgba(21, 0, 98, 0.06);
+      }
     </style>
-</head>
-<body class="bg-background text-on-background font-body selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 glass-nav shadow-[0_20px_40px_rgba(21,0,98,0.06)] h-20 flex items-center">
-<div class="flex justify-between items-center px-4 md:px-8 w-full max-w-7xl mx-auto">
-<div class="flex items-center">
-<img src="Logo_DCAP_Primary.png" alt="DCAP" class="h-10 w-auto"/>
-</div>
-<div class="hidden md:flex gap-8 items-center">
-<a class="text-slate-600 hover:text-secondary transition-colors duration-300 font-headline tracking-tight" href="#about">About</a>
-<a class="text-slate-600 hover:text-secondary transition-colors duration-300 font-headline tracking-tight" href="#features">Features</a>
-<a class="text-slate-600 hover:text-secondary transition-colors duration-300 font-headline tracking-tight" href="#benefits">Benefits</a>
-<a class="text-slate-600 hover:text-secondary transition-colors duration-300 font-headline tracking-tight" href="#faq">FAQ</a>
-</div>
-<a href="register.html" class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-2 md:px-8 md:py-3 rounded-full font-label font-bold text-xs md:text-sm uppercase tracking-wider whitespace-nowrap active:scale-95 transition-transform hover:brightness-105">
+  </head>
+  <body
+    class="bg-background text-on-background font-body selection:bg-tertiary-fixed selection:text-on-tertiary-fixed"
+  >
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 glass-nav shadow-[0_20px_40px_rgba(21,0,98,0.06)] h-20 flex items-center"
+    >
+      <div
+        class="flex justify-between items-center px-4 md:px-8 w-full max-w-7xl mx-auto"
+      >
+        <div class="flex items-center">
+          <img src="Logo_DCAP_Primary.png" alt="DCAP" class="h-10 w-auto" />
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+          <a
+            class="text-slate-600 hover:text-secondary transition-colors duration-300 font-headline tracking-tight"
+            href="#about"
+            >About</a
+          >
+          <a
+            class="text-slate-600 hover:text-secondary transition-colors duration-300 font-headline tracking-tight"
+            href="#features"
+            >Features</a
+          >
+          <a
+            class="text-slate-600 hover:text-secondary transition-colors duration-300 font-headline tracking-tight"
+            href="#benefits"
+            >Benefits</a
+          >
+          <a
+            class="text-slate-600 hover:text-secondary transition-colors duration-300 font-headline tracking-tight"
+            href="#faq"
+            >FAQ</a
+          >
+        </div>
+        <a
+          href="register.html"
+          class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-2 md:px-8 md:py-3 rounded-full font-label font-bold text-xs md:text-sm uppercase tracking-wider whitespace-nowrap active:scale-95 transition-transform hover:brightness-105"
+        >
+          Register Now
+        </a>
+      </div>
+    </nav>
+    <main class="pt-20">
+      <!-- Hero Section -->
+      <section
+        class="relative min-h-[600px] lg:min-h-[921px] flex items-center overflow-hidden bg-gradient-to-br from-primary to-primary-container px-4 md:px-8 py-12 md:py-20"
+      >
+        <div
+          class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center z-10"
+        >
+          <div class="space-y-8">
+            <div
+              class="hidden md:inline-block bg-tertiary-fixed/20 px-4 py-2 rounded-full"
+            >
+              <span
+                class="text-tertiary-fixed font-label text-xs uppercase tracking-[0.2em]"
+                >A Smarter Way to Fund Your Child&#39;s University Journey</span
+              >
+            </div>
+            <h1
+              class="text-4xl md:text-7xl font-black text-white font-headline leading-[1.1] tracking-tight"
+            >
+              Give Your Child the Future They Deserve
+            </h1>
+            <p
+              class="text-xl text-on-primary-container max-w-xl font-body leading-relaxed"
+            >
+              A flexible education financing program designed for your child to
+              pursue their dreams at Asia Pacific University.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a
+                href="register.html"
+                class="bg-tertiary-fixed text-on-tertiary-fixed px-6 py-3 md:px-10 md:py-5 rounded-full font-label font-bold text-base md:text-lg hover:brightness-110 transition-all editorial-shadow inline-block"
+              >
                 Register Now
-            </a>
-</div>
-</nav>
-<main class="pt-20">
-<!-- Hero Section -->
-<section class="relative min-h-[600px] lg:min-h-[921px] flex items-center overflow-hidden bg-gradient-to-br from-primary to-primary-container px-4 md:px-8 py-12 md:py-20">
-<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center z-10">
-<div class="space-y-8">
-<div class="hidden md:inline-block bg-tertiary-fixed/20 px-4 py-2 rounded-full">
-<span class="text-tertiary-fixed font-label text-xs uppercase tracking-[0.2em]">A Smarter Way to Fund Your Child&#39;s University Journey</span>
-</div>
-<h1 class="text-4xl md:text-7xl font-black text-white font-headline leading-[1.1] tracking-tight">
-                        Give Your Child the Future They Deserve
-                    </h1>
-<p class="text-xl text-on-primary-container max-w-xl font-body leading-relaxed">
-                        A flexible education financing program designed for your child to pursue their dreams at Asia Pacific University.
-                    </p>
-<div class="flex flex-wrap gap-4 pt-4">
-<a href="register.html" class="bg-tertiary-fixed text-on-tertiary-fixed px-6 py-3 md:px-10 md:py-5 rounded-full font-label font-bold text-base md:text-lg hover:brightness-110 transition-all editorial-shadow inline-block">
-                            Register Now
-                        </a>
-<a href="#about" class="border-2 border-on-primary-container text-white px-6 py-3 md:px-10 md:py-5 rounded-full font-label font-bold text-base md:text-lg hover:bg-white/10 transition-all inline-block">Learn More</a>
-</div>
-</div>
-<div class="relative">
-<div class="absolute -top-12 -left-12 w-64 h-64 bg-secondary rounded-full mix-blend-screen filter blur-3xl opacity-20"></div>
-<img alt="Students" class="rounded-3xl editorial-shadow relative z-10 w-full object-cover aspect-[4/5]" data-alt="Group of diverse university students smiling and collaborating in a modern bright campus environment with natural sunlight" src="pexels-george-pak-7973199.jpg"/>
-<div class="absolute -bottom-8 -right-8 bg-tertiary-fixed p-8 rounded-2xl editorial-shadow z-20 hidden md:block">
-<span class="text-primary font-black text-4xl block">6% p.a.</span>
-<span class="text-primary/60 font-body text-xs font-semibold uppercase tracking-[0.15em]">Starting Interest Rate</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Who's DCAP Section -->
-<section id="about" class="py-16 md:py-24 px-4 md:px-8 bg-surface">
-<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
-<div class="md:col-span-4">
-<h2 class="text-primary font-headline text-3xl md:text-4xl font-black tracking-tight leading-tight">Who is DCAP?</h2>
-<div class="w-20 h-2 bg-tertiary-fixed mt-6"></div>
-</div>
-<div class="md:col-span-8 space-y-6">
-<p class="text-on-surface text-xl leading-relaxed">
-                        DCAP is a pioneering financial technology platform dedicated to bridging the gap between ambition and opportunity. We believe that financial constraints should never limit a student&#39;s potential in the rapidly evolving AI and Tech landscape.
-                    </p>
-<p class="text-on-surface-variant text-lg leading-relaxed">
-                        Our mission is to provide affordable, transparent financing solutions while fostering a direct pipeline to career opportunities. Through our ecosystem, we don&#39;t just fund degrees; we cultivate the next generation of digital leaders.
-                    </p>
-</div>
-</div>
-</section>
-<!-- What Is This Section -->
-<section id="collaboration" class="py-16 md:py-24 px-4 md:px-8 bg-surface-container-low">
-<div class="max-w-7xl mx-auto">
-<div class="text-center mb-20">
-<span class="text-secondary font-label text-sm uppercase tracking-widest block mb-4">Strategic Collaboration</span>
-<h2 class="text-primary font-headline text-4xl md:text-5xl font-black tracking-tight mb-8">A Smarter Way to Finance Your Child&#39;s Future</h2>
-<div class="flex flex-wrap justify-center items-center gap-4 md:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-<span class="text-2xl font-black font-headline">Alrajhi Bank</span>
-<span class="text-2xl font-black font-headline text-secondary">APU University</span>
-<span class="text-2xl font-black font-headline text-primary">DCAP</span>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-<div class="bg-surface-container-lowest p-6 md:p-12 rounded-2xl md:rounded-3xl editorial-shadow">
-<h3 class="text-2xl font-bold font-headline text-primary mb-6">Empowering Education</h3>
-<p class="text-on-surface-variant leading-relaxed text-lg">
-                            In collaboration with Alrajhi Bank and Asia Pacific University (APU), we&#39;ve crafted a financing model that prioritizes student success. By combining banking stability with educational excellence, we offer a comprehensive support system that extends far beyond the classroom.
-                        </p>
-</div>
-<div class="relative h-[250px] md:h-[400px]">
-<img alt="APU Campus" class="absolute inset-0 w-full h-full object-cover rounded-3xl" data-alt="Modern university campus architecture with sleek glass buildings and students walking in a green open space" src="APU - image.jpg"/>
-</div>
-</div>
-</div>
-</section>
-<!-- What Makes This Different -->
-<section id="features" class="py-16 md:py-24 px-4 md:px-8 bg-white">
-<div class="max-w-7xl mx-auto">
-<div class="mb-16">
-<h2 class="text-primary font-headline text-3xl md:text-4xl font-black tracking-tight">What Makes This Different?</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-<!-- Card 1 -->
-<div class="bg-surface-container-low p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
-<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors">
-<span class="material-symbols-outlined text-white" data-icon="architecture">architecture</span>
-</div>
-<h4 class="text-xl font-bold font-headline text-primary mb-4">Unique product design</h4>
-<p class="text-on-surface-variant text-sm leading-relaxed">Tailored financial structures that adapt to the specific needs of modern education timelines.</p>
-</div>
-<!-- Card 2 -->
-<div class="bg-primary p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group shadow-xl">
-<div class="w-12 h-12 bg-tertiary-fixed rounded-xl flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-primary" data-icon="hub">hub</span>
-</div>
-<h4 class="text-xl font-bold font-headline text-white mb-4">Real career opportunities</h4>
-<p class="text-on-primary-container text-sm leading-relaxed">Direct access to the DCAP tech ecosystem and partner network for immediate employment post-graduation.</p>
-</div>
-<!-- Card 3 -->
-<div class="bg-surface-container-low p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
-<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors">
-<span class="material-symbols-outlined text-white" data-icon="door_open">door_open</span>
-</div>
-<h4 class="text-xl font-bold font-headline text-primary mb-4">Open doors beyond education</h4>
-<p class="text-on-surface-variant text-sm leading-relaxed">We provide mentorship and networking that transcends typical student loans.</p>
-</div>
-<!-- Card 4 -->
-<div class="bg-tertiary-fixed p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
-<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-tertiary-fixed" data-icon="featured_seasonal_and_gifts" style="font-variation-settings: 'FILL' 1;">featured_seasonal_and_gifts</span>
-</div>
-<h4 class="text-xl font-bold font-headline text-on-tertiary-fixed mb-4">1.5% p.a. subsidy</h4>
-<p class="text-on-tertiary-fixed-variant text-sm leading-relaxed">Extra support for eligible families to ensure education remains affordable for everyone.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Benefits Section -->
-<section id="benefits" class="py-16 md:py-24 px-4 md:px-8 bg-surface-container-highest overflow-hidden">
-<div class="max-w-7xl mx-auto">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-<!-- For Parents -->
-<div class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-12 editorial-shadow relative overflow-hidden">
-<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-bl-full"></div>
-<span class="text-secondary font-label text-sm uppercase tracking-widest font-bold mb-6 block">For Parents</span>
-<h3 class="text-3xl font-black font-headline text-primary mb-8">Financial Peace of Mind</h3>
-<ul class="space-y-6">
-<li class="flex gap-4">
-<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-<span class="text-on-surface-variant">Manageable monthly repayments starting only after graduation.</span>
-</li>
-<li class="flex gap-4">
-<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-<span class="text-on-surface-variant">Competitive rates that beat traditional personal loans.</span>
-</li>
-<li class="flex gap-4">
-<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-<span class="text-on-surface-variant">Streamlined digital application process with quick approvals.</span>
-</li>
-</ul>
-</div>
-<!-- For Students -->
-<div class="bg-primary rounded-2xl md:rounded-3xl p-6 md:p-12 editorial-shadow relative overflow-hidden">
-<div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full"></div>
-<span class="text-tertiary-fixed font-label text-sm uppercase tracking-widest font-bold mb-6 block">For Students</span>
-<h3 class="text-3xl font-black font-headline text-white mb-8">Career Launchpad</h3>
-<ul class="space-y-6">
-<li class="flex gap-4">
-<span class="material-symbols-outlined text-tertiary-fixed" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
-<span class="text-on-primary-container">Study at APU, a top-tier university for technology and innovation.</span>
-</li>
-<li class="flex gap-4">
-<span class="material-symbols-outlined text-tertiary-fixed" data-icon="rocket_launch" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
-<span class="text-on-primary-container">Exclusive access to the DCAP Fintech and AI ecosystem.</span>
-</li>
-<li class="flex gap-4">
-<span class="material-symbols-outlined text-tertiary-fixed" data-icon="work" style="font-variation-settings: 'FILL' 1;">work</span>
-<span class="text-on-primary-container">Guaranteed career workshops and high employability focus.</span>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- Product Features -->
-<section id="highlights" class="py-16 md:py-24 px-4 md:px-8 bg-surface">
-<div class="max-w-7xl mx-auto bg-white rounded-2xl md:rounded-[3rem] p-8 md:p-20 shadow-xl border border-outline-variant/15">
-<div class="text-center max-w-3xl mx-auto mb-16">
-<h2 class="text-primary font-headline text-3xl md:text-4xl font-black tracking-tight mb-6">Program Highlights</h2>
-<p class="text-on-surface-variant">Everything you need to know about the financing structure in one glance.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="text-center">
-<div class="text-3xl md:text-4xl font-black font-headline text-secondary mb-2">6% p.a.</div>
-<div class="text-on-surface-variant font-label text-xs uppercase tracking-widest">Starting Interest</div>
-</div>
-<div class="text-center">
-<div class="text-3xl md:text-4xl font-black font-headline text-secondary mb-2">8 Years</div>
-<div class="text-on-surface-variant font-label text-xs uppercase tracking-widest">Maximum Tenure</div>
-</div>
-<div class="text-center">
-<div class="text-3xl md:text-4xl font-black font-headline text-secondary mb-2">Full Cover</div>
-<div class="text-on-surface-variant font-label text-xs uppercase tracking-widest">Tuition + Living</div>
-</div>
-<div class="text-center">
-<div class="text-3xl md:text-4xl font-black font-headline text-secondary mb-2">Unlimited</div>
-<div class="text-on-surface-variant font-label text-xs uppercase tracking-widest">Network Access</div>
-</div>
-</div>
-</div>
-</section>
-<!-- FAQ Section -->
-<section id="faq" class="py-16 md:py-24 px-4 md:px-8 bg-surface-container-low">
-<div class="max-w-4xl mx-auto">
-<h2 class="text-primary font-headline text-3xl md:text-4xl font-black tracking-tight mb-8 md:mb-12 text-center">Frequently Asked Questions</h2>
-<div class="space-y-4">
-<!-- FAQ Item 1 -->
-<details class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer" open="">
-<summary class="flex justify-between items-center font-bold text-lg text-primary list-none">
-                            What is the role of DCAP in this program?
-                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">
-                            DCAP acts as the primary technology and coordination partner, managing the ecosystem that connects students with financing from our banking partners and educational opportunities at APU.
-                        </p>
-</details>
-<!-- FAQ Item 2 -->
-<details class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer">
-<summary class="flex justify-between items-center font-bold text-lg text-primary list-none">
-                            Who is the banking partner?
-                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">
-                            We are proud to collaborate with Alrajhi Bank to provide secure, Shariah-compliant financing options for our students.
-                        </p>
-</details>
-<!-- FAQ Item 3 -->
-<details class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer">
-<summary class="flex justify-between items-center font-bold text-lg text-primary list-none">
-                            Who can apply for this program?
-                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">
-                            The program is open to Malaysian citizens planning to enroll in approved undergraduate courses at APU. Eligibility depends on academic performance and financial assessment.
-                        </p>
-</details>
-<!-- FAQ Item 4 -->
-<details class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer">
-<summary class="flex justify-between items-center font-bold text-lg text-primary list-none">
-                            What does the financing cover?
-                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">
-                            Unlike traditional loans, our coverage is comprehensive, including full tuition fees as well as necessary living expenses to ensure students can focus entirely on their studies.
-                        </p>
-</details>
-<!-- FAQ Item 5 -->
-<details class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer">
-<summary class="flex justify-between items-center font-bold text-lg text-primary list-none">
-                            How does the 1.5% p.a. subsidy work?
-                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">
-                            Eligible families from lower-income brackets can receive an interest subsidy of 1.5% per annum, further reducing the financial burden of higher education.
-                        </p>
-</details>
-</div>
-</div>
-</section>
-<!-- Final CTA -->
-<section class="py-16 md:py-32 px-4 md:px-8">
-<div class="max-w-7xl mx-auto relative rounded-2xl md:rounded-[3rem] overflow-hidden bg-primary p-8 md:p-24 text-center">
-<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&amp;fit=crop&amp;q=80&amp;w=1500')] bg-cover bg-center opacity-10" data-alt="Dynamic group of students high-fiving in a collaborative modern workspace with neon lighting and high-tech equipment"></div>
-<div class="relative z-10 space-y-8">
-<h2 class="text-4xl md:text-6xl font-black text-white font-headline max-w-4xl mx-auto leading-tight">
-                        Ready to secure your child&#39;s digital future?
-                    </h2>
-<p class="text-on-primary-container text-xl max-w-2xl mx-auto">
-                        Join the hundreds of families who are choosing a smarter path to education. Register for the pre-launch today.
-                    </p>
-<a href="register.html" class="bg-tertiary-fixed text-on-tertiary-fixed px-8 py-4 md:px-12 md:py-6 rounded-full font-label font-bold text-base md:text-xl hover:scale-105 transition-transform editorial-shadow inline-block">
-                        Register for the pre-launch of the program today
-                    </a>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-primary dark:bg-black w-full py-12 md:py-16 px-4 md:px-8">
-<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-<div class="md:col-span-1">
-<img src="Logo_DCAP_Primary.png" alt="DCAP" class="h-8 w-auto brightness-0 invert mb-4"/>
-<p class="text-slate-400 font-label text-xs uppercase tracking-wider leading-relaxed">
-                    © 2026 DCAP Digital. Your AI-Driven Path to Future Education.
+              </a>
+              <a
+                href="#about"
+                class="border-2 border-on-primary-container text-white px-6 py-3 md:px-10 md:py-5 rounded-full font-label font-bold text-base md:text-lg hover:bg-white/10 transition-all inline-block"
+                >Learn More</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <div
+              class="absolute -top-12 -left-12 w-64 h-64 bg-secondary rounded-full mix-blend-screen filter blur-3xl opacity-20"
+            ></div>
+            <img
+              alt="Students"
+              class="rounded-3xl editorial-shadow relative z-10 w-full object-cover aspect-[4/5]"
+              data-alt="Group of diverse university students smiling and collaborating in a modern bright campus environment with natural sunlight"
+              src="pexels-george-pak-7973199.jpg"
+            />
+            <div
+              class="absolute -bottom-8 -right-8 bg-tertiary-fixed p-8 rounded-2xl editorial-shadow z-20 hidden md:block"
+            >
+              <span class="text-primary font-black text-4xl block"
+                >6% p.a.</span
+              >
+              <span
+                class="text-primary/60 font-body text-xs font-semibold uppercase tracking-[0.15em]"
+                >Starting Interest Rate</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Who's DCAP Section -->
+      <section id="about" class="py-16 md:py-24 px-4 md:px-8 bg-surface">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
+          <div class="md:col-span-4">
+            <h2
+              class="text-primary font-headline text-3xl md:text-4xl font-black tracking-tight leading-tight"
+            >
+              Who is DCAP?
+            </h2>
+            <div class="w-20 h-2 bg-tertiary-fixed mt-6"></div>
+          </div>
+          <div class="md:col-span-8 space-y-6">
+            <p class="text-on-surface text-xl leading-relaxed">
+              DCAP is a pioneering Malaysian-based financial technology platform
+              dedicated to enable access financing for all. We believe that
+              financial constraints should never limit a student&#39;s potential
+              in the rapidly evolving AI and Tech landscape.
+            </p>
+            <p class="text-on-surface-variant text-lg leading-relaxed">
+              We partner with financial institutions to offer affordable
+              financing to parents to fund your children&#39;s university
+              journey. Beyond funding, DCAP ensures your child doesn&#39;t just
+              get into university but also equip them with real career
+              opportunities and exposure to regional AI &amp; tech network,
+              events, and entrepreneurial experience.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- What Is This Section -->
+      <section
+        id="collaboration"
+        class="py-16 md:py-24 px-4 md:px-8 bg-surface-container-low"
+      >
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-20">
+            <h2
+              class="text-primary font-headline text-4xl md:text-5xl font-black tracking-tight mb-8"
+            >
+              A Smarter Way to Finance Your Child&#39;s Future
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div
+              class="bg-surface-container-lowest p-6 md:p-12 rounded-2xl md:rounded-3xl editorial-shadow"
+            >
+              <h3 class="text-2xl font-bold font-headline text-primary mb-6">
+                Enabling Access to World-Class Education for All
+              </h3>
+              <p class="text-on-surface-variant leading-relaxed text-lg mb-4">
+                We&#39;ve crafted a purpose-built financing program to help
+                families afford world-class education at APU that enables
+                priority access into the tech &amp; AI jobs and ecosystem in
+                Malaysia to build your child&#39;s future.
+              </p>
+              <p class="text-on-surface-variant leading-relaxed text-lg">
+                Studying at a top-tier university is no longer far-fetched, made
+                possible by this education financing program, powered by DCAP.
+              </p>
+            </div>
+            <div class="relative h-[250px] md:h-[400px]">
+              <img
+                alt="APU Campus"
+                class="absolute inset-0 w-full h-full object-cover rounded-3xl"
+                data-alt="Modern university campus architecture with sleek glass buildings and students walking in a green open space"
+                src="APU - image.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- What Makes This Different -->
+      <section id="features" class="py-16 md:py-24 px-4 md:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-16">
+            <h2
+              class="text-primary font-headline text-3xl md:text-4xl font-black tracking-tight"
+            >
+              What Makes This Different?
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+            <div
+              class="bg-surface-container-low p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group"
+            >
+              <div
+                class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-white"
+                  data-icon="architecture"
+                  >architecture</span
+                >
+              </div>
+              <h4 class="text-xl font-bold font-headline text-primary mb-4">
+                Unique product design
+              </h4>
+              <p class="text-on-surface-variant text-sm leading-relaxed">
+                Curated specially for parents to afford top-tier education that
+                carves your child&#39;s career pathway.
+              </p>
+            </div>
+            <!-- Card 2 -->
+            <div
+              class="bg-primary p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group shadow-xl"
+            >
+              <div
+                class="w-12 h-12 bg-tertiary-fixed rounded-xl flex items-center justify-center mb-6"
+              >
+                <span
+                  class="material-symbols-outlined text-primary"
+                  data-icon="hub"
+                  >hub</span
+                >
+              </div>
+              <h4 class="text-xl font-bold font-headline text-white mb-4">
+                Real career opportunities and network
+              </h4>
+              <p class="text-on-primary-container text-sm leading-relaxed">
+                Exclusive access to AI &amp; tech jobs and regional AI, Tech
+                &amp; Fintech ecosystem events for top students.
+              </p>
+            </div>
+            <!-- Card 3 -->
+            <div
+              class="bg-surface-container-low p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group"
+            >
+              <div
+                class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-white"
+                  data-icon="door_open"
+                  >door_open</span
+                >
+              </div>
+              <h4 class="text-xl font-bold font-headline text-primary mb-4">
+                Open doors beyond education and jobs
+              </h4>
+              <p class="text-on-surface-variant text-sm leading-relaxed">
+                Access to funding opportunities by top investors, mentors and
+                startup founders for aspiring entrepreneurs.
+              </p>
+            </div>
+            <!-- Card 4 -->
+            <div
+              class="bg-tertiary-fixed p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group"
+            >
+              <div
+                class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-6"
+              >
+                <span
+                  class="material-symbols-outlined text-tertiary-fixed"
+                  data-icon="featured_seasonal_and_gifts"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >featured_seasonal_and_gifts</span
+                >
+              </div>
+              <h4
+                class="text-xl font-bold font-headline text-on-tertiary-fixed mb-4"
+              >
+                Extra support for eligible families
+              </h4>
+              <p class="text-on-tertiary-fixed-variant text-sm leading-relaxed">
+                Extra 1.5% p.a. living expense subsidy for families who need it
+                the most.
+              </p>
+              <p
+                class="text-on-tertiary-fixed-variant text-xs leading-relaxed mt-3 italic"
+              >
+                *Subsidy is subject to eligibility assessment and approval.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Benefits Section -->
+      <section
+        id="benefits"
+        class="py-16 md:py-24 px-4 md:px-8 bg-surface-container-highest overflow-hidden"
+      >
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- For Parents -->
+            <div
+              class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-12 editorial-shadow relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-bl-full"
+              ></div>
+              <span
+                class="text-secondary font-label text-sm uppercase tracking-widest font-bold mb-6 block"
+                >For Parents</span
+              >
+              <h3 class="text-3xl font-black font-headline text-primary mb-8">
+                Financial Peace of Mind
+              </h3>
+              <ul class="space-y-6">
+                <li class="flex gap-4">
+                  <span
+                    class="material-symbols-outlined text-secondary"
+                    data-icon="check_circle"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >check_circle</span
+                  >
+                  <span class="text-on-surface-variant"
+                    >Afford world-class education for your children</span
+                  >
+                </li>
+                <li class="flex gap-4">
+                  <span
+                    class="material-symbols-outlined text-secondary"
+                    data-icon="check_circle"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >check_circle</span
+                  >
+                  <span class="text-on-surface-variant"
+                    >Manageable monthly repayments and additional subsidy*
+                    without burdening your financials</span
+                  >
+                </li>
+                <li class="flex gap-4">
+                  <span
+                    class="material-symbols-outlined text-secondary"
+                    data-icon="check_circle"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >check_circle</span
+                  >
+                  <span class="text-on-surface-variant"
+                    >Employability and industry exposure in their interested
+                    fields</span
+                  >
+                </li>
+              </ul>
+              <p
+                class="text-on-surface-variant text-xs mt-6 italic"
+              >
+                *Subject to assessment of eligibility
+              </p>
+            </div>
+            <!-- For Students -->
+            <div
+              class="bg-primary rounded-2xl md:rounded-3xl p-6 md:p-12 editorial-shadow relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full"
+              ></div>
+              <span
+                class="text-tertiary-fixed font-label text-sm uppercase tracking-widest font-bold mb-6 block"
+                >For Students</span
+              >
+              <h3 class="text-3xl font-black font-headline text-white mb-8">
+                For Students
+              </h3>
+              <ul class="space-y-6">
+                <li class="flex gap-4">
+                  <span
+                    class="material-symbols-outlined text-tertiary-fixed"
+                    data-icon="school"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >school</span
+                  >
+                  <span class="text-on-primary-container"
+                    >Fulfill your dream to study at top-tier university</span
+                  >
+                </li>
+                <li class="flex gap-4">
+                  <span
+                    class="material-symbols-outlined text-tertiary-fixed"
+                    data-icon="rocket_launch"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >rocket_launch</span
+                  >
+                  <span class="text-on-primary-container"
+                    >Exclusive access to the DCAP Fintech and AI
+                    ecosystem</span
+                  >
+                </li>
+                <li class="flex gap-4">
+                  <span
+                    class="material-symbols-outlined text-tertiary-fixed"
+                    data-icon="work"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >work</span
+                  >
+                  <span class="text-on-primary-container"
+                    >High chances of employability after graduation</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Product Features -->
+      <section id="highlights" class="py-16 md:py-24 px-4 md:px-8 bg-surface">
+        <div
+          class="max-w-7xl mx-auto bg-white rounded-2xl md:rounded-[3rem] p-8 md:p-20 shadow-xl border border-outline-variant/15"
+        >
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2
+              class="text-primary font-headline text-3xl md:text-4xl font-black tracking-tight mb-6"
+            >
+              Program Highlights
+            </h2>
+            <p class="text-on-surface-variant">
+              Everything you need to know about the financing structure in one
+              glance.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div class="text-center">
+              <div
+                class="text-3xl md:text-4xl font-black font-headline text-secondary mb-2"
+              >
+                From 6% p.a.
+              </div>
+              <div
+                class="text-on-surface-variant font-label text-xs uppercase tracking-widest"
+              >
+                Interest Rate
+              </div>
+            </div>
+            <div class="text-center">
+              <div
+                class="text-3xl md:text-4xl font-black font-headline text-secondary mb-2"
+              >
+                Up to 8 Years
+              </div>
+              <div
+                class="text-on-surface-variant font-label text-xs uppercase tracking-widest"
+              >
+                Tenure
+              </div>
+            </div>
+            <div class="text-center">
+              <div
+                class="text-3xl md:text-4xl font-black font-headline text-secondary mb-2"
+              >
+                Full Cover
+              </div>
+              <div
+                class="text-on-surface-variant font-label text-xs uppercase tracking-widest"
+              >
+                Tuition + Living Expenses
+              </div>
+              <p class="text-on-surface-variant text-xs mt-1">
+                Books, accommodation, transportation, food etc
+              </p>
+            </div>
+            <div class="text-center">
+              <div
+                class="text-3xl md:text-4xl font-black font-headline text-secondary mb-2"
+              >
+                3 Levels
+              </div>
+              <div
+                class="text-on-surface-variant font-label text-xs uppercase tracking-widest"
+              >
+                Programmes
+              </div>
+              <p class="text-on-surface-variant text-xs mt-1">
+                Foundation, Diploma, Degree
+              </p>
+            </div>
+          </div>
+          <div
+            class="border-t border-outline-variant/20 pt-10"
+          >
+            <h3
+              class="text-xl font-bold font-headline text-primary mb-6 text-center"
+            >
+              Access to Fintech Network &amp; Opportunities
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div class="flex gap-3 items-start">
+                <span
+                  class="material-symbols-outlined text-secondary shrink-0"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >public</span
+                >
+                <span class="text-on-surface-variant text-sm"
+                  >Regional exposure to AI/tech events</span
+                >
+              </div>
+              <div class="flex gap-3 items-start">
+                <span
+                  class="material-symbols-outlined text-secondary shrink-0"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >groups</span
+                >
+                <span class="text-on-surface-variant text-sm"
+                  >Closed door entrepreneurship sharing and mentorship from
+                  seasoned entrepreneurs</span
+                >
+              </div>
+              <div class="flex gap-3 items-start">
+                <span
+                  class="material-symbols-outlined text-secondary shrink-0"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >payments</span
+                >
+                <span class="text-on-surface-variant text-sm"
+                  >Funding opportunities by VC network</span
+                >
+              </div>
+              <div class="flex gap-3 items-start">
+                <span
+                  class="material-symbols-outlined text-secondary shrink-0"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >work</span
+                >
+                <span class="text-on-surface-variant text-sm"
+                  >Priority access to internships and job opportunities</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- FAQ Section -->
+      <section
+        id="faq"
+        class="py-16 md:py-24 px-4 md:px-8 bg-surface-container-low"
+      >
+        <div class="max-w-4xl mx-auto">
+          <h2
+            class="text-primary font-headline text-3xl md:text-4xl font-black tracking-tight mb-8 md:mb-12 text-center"
+          >
+            Frequently Asked Questions
+          </h2>
+          <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <details
+              class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer"
+              open=""
+            >
+              <summary
+                class="flex justify-between items-center font-bold text-lg text-primary list-none"
+              >
+                What is the role of DCAP in this program?
+                <span
+                  class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                  >expand_more</span
+                >
+              </summary>
+              <div class="mt-4 text-on-surface-variant leading-relaxed space-y-4">
+                <p>
+                  DCAP is the ecosystem builder bringing together the
+                  university, financing partner and career &amp; tech industry
+                  players to offer this unique education financing program to
+                  parents.
                 </p>
-</div>
-<div>
-<h4 class="text-tertiary-fixed font-label font-bold text-sm uppercase tracking-wider mb-6">Explore</h4>
-<ul class="space-y-4">
-<li><a class="text-slate-400 hover:text-white transition-colors font-label text-sm uppercase tracking-wider" href="#about">About</a></li>
-<li><a class="text-slate-400 hover:text-white transition-colors font-label text-sm uppercase tracking-wider" href="#features">Features</a></li>
-<li><a class="text-slate-400 hover:text-white transition-colors font-label text-sm uppercase tracking-wider" href="#benefits">Benefits</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-tertiary-fixed font-label font-bold text-sm uppercase tracking-wider mb-6">Quick Links</h4>
-<ul class="space-y-4">
-<li><a class="text-slate-400 hover:text-white transition-colors font-label text-sm uppercase tracking-wider" href="#faq">FAQ</a></li>
-<li><a class="text-slate-400 hover:text-white transition-colors font-label text-sm uppercase tracking-wider" href="#highlights">Program Highlights</a></li>
-</ul>
-</div>
-</div>
-</footer>
-</body></html>
+                <p>
+                  DCAP will facilitate the application of parents and perform
+                  preliminary credit assessment. Final decision of approval will
+                  be based on the bank&#39;s discretion.
+                </p>
+                <p>
+                  We will perform assessment for subsidy eligibility based on
+                  financial position of parents.
+                </p>
+                <p>
+                  During the course of study, DCAP will provide students with
+                  exposure and experience with latest tech &amp; AI developments
+                  and entrepreneurship through events, sharing and mentorship
+                  from seasoned entrepreneurs, funding opportunities by
+                  investors and hands-on job opportunities at DCAP&#39;s
+                  affiliated partners.
+                </p>
+              </div>
+            </details>
+            <!-- FAQ Item 2 -->
+            <details
+              class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer"
+            >
+              <summary
+                class="flex justify-between items-center font-bold text-lg text-primary list-none"
+              >
+                Who can apply for this program?
+                <span
+                  class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                  >expand_more</span
+                >
+              </summary>
+              <p class="mt-4 text-on-surface-variant leading-relaxed">
+                The program is open to Malaysian parents with children planning
+                to enroll in pre-university, diploma and undergraduate courses
+                at APU.
+              </p>
+            </details>
+            <!-- FAQ Item 3 -->
+            <details
+              class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer"
+            >
+              <summary
+                class="flex justify-between items-center font-bold text-lg text-primary list-none"
+              >
+                When can I start applying?
+                <span
+                  class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                  >expand_more</span
+                >
+              </summary>
+              <div class="mt-4 text-on-surface-variant leading-relaxed space-y-4">
+                <p>
+                  We now welcome registration for the pre-launch of the program
+                  before the launch of program in the 3rd week of April.
+                </p>
+                <p>
+                  Our team will reach out to you to facilitate the application
+                  once it is launched.
+                </p>
+                <p>
+                  The interest rate and subsidy will be on a first come first
+                  serve basis so we encourage you to
+                  <a
+                    href="register.html"
+                    class="text-secondary font-bold underline hover:text-primary transition-colors"
+                    >register in the pre-launch</a
+                  >.
+                </p>
+              </div>
+            </details>
+            <!-- FAQ Item 4 -->
+            <details
+              class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer"
+            >
+              <summary
+                class="flex justify-between items-center font-bold text-lg text-primary list-none"
+              >
+                Which courses can I qualify for?
+                <span
+                  class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                  >expand_more</span
+                >
+              </summary>
+              <div class="mt-4 text-on-surface-variant leading-relaxed space-y-4">
+                <p>
+                  We welcome students interested to study and build their career
+                  in tech, fintech and AI as follows. We also welcome
+                  registration of interest for other courses which will be
+                  considered on a case by case basis.
+                </p>
+                <ul class="list-disc list-inside space-y-1 ml-2">
+                  <li>Diploma in ICT</li>
+                  <li>Diploma in Mechatronic Engineering</li>
+                  <li>
+                    Foundation Programs (non-Engineering &amp; Engineering)
+                  </li>
+                  <li>
+                    Bachelor of Computer Science (Hons) (Artificial
+                    Intelligence)
+                  </li>
+                  <li>
+                    Bachelor of Science (Hons) in Computer Science (Cyber
+                    Security)
+                  </li>
+                  <li>Bachelor of Mechatronic Engineering with Honours</li>
+                  <li>Bachelor of Financial Technology (Hons)</li>
+                </ul>
+              </div>
+            </details>
+            <!-- FAQ Item 5 -->
+            <details
+              class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer"
+            >
+              <summary
+                class="flex justify-between items-center font-bold text-lg text-primary list-none"
+              >
+                What does the financing cover?
+                <span
+                  class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                  >expand_more</span
+                >
+              </summary>
+              <p class="mt-4 text-on-surface-variant leading-relaxed">
+                Unlike traditional loans, our coverage is comprehensive,
+                including full tuition fees as well as necessary living expenses
+                to ensure students can focus entirely on their studies.
+              </p>
+            </details>
+            <!-- FAQ Item 6 -->
+            <details
+              class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer"
+            >
+              <summary
+                class="flex justify-between items-center font-bold text-lg text-primary list-none"
+              >
+                How does this compare to existing financing products?
+                <span
+                  class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                  >expand_more</span
+                >
+              </summary>
+              <p class="mt-4 text-on-surface-variant leading-relaxed">
+                This programme is specifically designed for students entering
+                this university. It not only provides financing to cover tuition
+                fees and living expenses but also includes career access,
+                industry exposure, and additional support not available in
+                standard loans.
+              </p>
+            </details>
+            <!-- FAQ Item 7 -->
+            <details
+              class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer"
+            >
+              <summary
+                class="flex justify-between items-center font-bold text-lg text-primary list-none"
+              >
+                How will my child benefit from this network?
+                <span
+                  class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                  >expand_more</span
+                >
+              </summary>
+              <p class="mt-4 text-on-surface-variant leading-relaxed">
+                Students gain real-world exposure, mentorship opportunities,
+                access to startup funding networks, and priority job
+                opportunities.
+              </p>
+            </details>
+            <!-- FAQ Item 8 -->
+            <details
+              class="group bg-white rounded-2xl p-6 editorial-shadow cursor-pointer"
+            >
+              <summary
+                class="flex justify-between items-center font-bold text-lg text-primary list-none"
+              >
+                How do I qualify for the subsidy?
+                <span
+                  class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                  >expand_more</span
+                >
+              </summary>
+              <div class="mt-4 text-on-surface-variant leading-relaxed space-y-4">
+                <p>
+                  The subsidy is designed to support families who may need
+                  additional financial assistance.
+                </p>
+                <p>
+                  Eligibility is assessed based on your household financial
+                  situation during the application process.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+      <!-- Final CTA -->
+      <section class="py-16 md:py-32 px-4 md:px-8">
+        <div
+          class="max-w-7xl mx-auto relative rounded-2xl md:rounded-[3rem] overflow-hidden bg-primary p-8 md:p-24 text-center"
+        >
+          <div
+            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&amp;fit=crop&amp;q=80&amp;w=1500')] bg-cover bg-center opacity-10"
+            data-alt="Dynamic group of students high-fiving in a collaborative modern workspace with neon lighting and high-tech equipment"
+          ></div>
+          <div class="relative z-10 space-y-8">
+            <h2
+              class="text-4xl md:text-6xl font-black text-white font-headline max-w-4xl mx-auto leading-tight"
+            >
+              Ready to secure your child&#39;s digital future?
+            </h2>
+            <p class="text-on-primary-container text-xl max-w-2xl mx-auto">
+              Join the hundreds of families who are choosing a smarter path to
+              education. Register for the pre-launch today.
+            </p>
+            <a
+              href="register.html"
+              class="bg-tertiary-fixed text-on-tertiary-fixed px-8 py-4 md:px-12 md:py-6 rounded-full font-label font-bold text-base md:text-xl hover:scale-105 transition-transform editorial-shadow inline-block"
+            >
+              Register for the pre-launch of the program today
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-black w-full py-12 md:py-16 px-4 md:px-8">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="md:col-span-1">
+          <img
+            src="Logo_DCAP_Primary.png"
+            alt="DCAP"
+            class="h-8 w-auto brightness-0 invert mb-4"
+          />
+          <p
+            class="text-slate-400 font-label text-xs uppercase tracking-wider leading-relaxed"
+          >
+            © 2026 DCAP Digital. Your AI-Driven Path to Future Education.
+          </p>
+        </div>
+        <div>
+          <h4
+            class="text-tertiary-fixed font-label font-bold text-sm uppercase tracking-wider mb-6"
+          >
+            Explore
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="text-slate-400 hover:text-white transition-colors font-label text-sm uppercase tracking-wider"
+                href="#about"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-slate-400 hover:text-white transition-colors font-label text-sm uppercase tracking-wider"
+                href="#features"
+                >Features</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-slate-400 hover:text-white transition-colors font-label text-sm uppercase tracking-wider"
+                href="#benefits"
+                >Benefits</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="text-tertiary-fixed font-label font-bold text-sm uppercase tracking-wider mb-6"
+          >
+            Quick Links
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="text-slate-400 hover:text-white transition-colors font-label text-sm uppercase tracking-wider"
+                href="#faq"
+                >FAQ</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-slate-400 hover:text-white transition-colors font-label text-sm uppercase tracking-wider"
+                href="#highlights"
+                >Program Highlights</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
