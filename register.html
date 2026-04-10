@@ -113,7 +113,10 @@ Back to Home
 <div class="max-w-3xl mx-auto">
 <h1 class="text-3xl md:text-5xl font-black text-white font-headline tracking-tight mb-4">Pre-Launch Registration</h1>
 <p class="text-on-primary-container text-base md:text-lg max-w-2xl mx-auto">Complete the form below to begin your education financing journey.</p>
-<div class="inline-block bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 mt-4">
+<div class="inline-block bg-tertiary-fixed/15 backdrop-blur-sm rounded-full px-5 py-2 mt-4">
+<p class="text-tertiary-fixed text-sm font-bold uppercase tracking-wider">Limited slots available, on first come first served basis</p>
+</div>
+<div class="inline-block bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 mt-3">
 <p class="text-white/90 text-sm font-medium">All fields marked with <span class="text-tertiary-fixed font-bold">*</span> are required.</p>
 </div>
 </div>
@@ -152,7 +155,7 @@ Back to Home
 <input type="text" required placeholder="e.g. 880101-14-5678" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Parental Status <span class="text-error">*</span></label>
+<label class="block text-sm font-semibold text-on-surface mb-1">Marital Status <span class="text-error">*</span></label>
 <select id="parentalStatus" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
 <option value="">Select</option>
 <option value="married">Married</option>
@@ -209,9 +212,11 @@ Back to Home
 <label class="block text-sm font-semibold text-on-surface mb-1">Monthly Personal Income <span class="text-error">*</span></label>
 <select id="incomeP1" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
 <option value="">Select</option>
-<option value="5000">&lt; RM5,000</option>
-<option value="10000">RM5,000 - RM10,000</option>
-<option value="15000">&gt; RM10,000</option>
+<option value="3000">&lt; RM5,000</option>
+<option value="6500">RM5,000 - RM8,000</option>
+<option value="9000">RM8,001 - RM10,000</option>
+<option value="12500">RM10,001 - RM15,000</option>
+<option value="20000">&gt; RM15,000</option>
 </select>
 </div>
 </div>
@@ -300,9 +305,11 @@ Back to Home
 <label class="block text-sm font-semibold text-on-surface mb-1">Monthly Personal Income <span class="text-error">*</span></label>
 <select id="incomeP2" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field">
 <option value="">Select</option>
-<option value="5000">&lt; RM5,000</option>
-<option value="10000">RM5,000 - RM10,000</option>
-<option value="15000">&gt; RM10,000</option>
+<option value="3000">&lt; RM5,000</option>
+<option value="6500">RM5,000 - RM8,000</option>
+<option value="9000">RM8,001 - RM10,000</option>
+<option value="12500">RM10,001 - RM15,000</option>
+<option value="20000">&gt; RM15,000</option>
 </select>
 </div>
 </div>
@@ -323,7 +330,8 @@ Back to Home
 <option value="">Select</option>
 <option value="5000">&lt; RM5,000</option>
 <option value="10000">RM5,000 - RM10,000</option>
-<option value="20000">RM10,000 - RM20,000</option>
+<option value="15000">RM10,001 - RM15,000</option>
+<option value="20000">RM15,001 - RM20,000</option>
 <option value="20001">&gt; RM20,000</option>
 </select>
 <p id="householdHint" class="text-xs text-secondary mt-1 hidden">Auto-estimated from parent incomes. You may adjust if needed.</p>
@@ -384,7 +392,7 @@ Back to Home
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Course Name <span class="text-error">*</span></label>
-<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<select id="courseName" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
 <option value="">Select a course</option>
 <option>Diploma in ICT</option>
 <option>Diploma in Mechatronic Engineering</option>
@@ -394,8 +402,12 @@ Back to Home
 <option>Bachelor of Science in Computer Science (Cyber Security)</option>
 <option>Bachelor of Mechatronic Engineering</option>
 <option>Bachelor of Financial Technology</option>
-<option>Others</option>
+<option value="Others">Others</option>
 </select>
+</div>
+<div id="otherCourseDiv" class="md:col-span-2 hidden">
+<label class="block text-sm font-semibold text-on-surface mb-1">Please specify course <span class="text-error">*</span></label>
+<input type="text" id="otherCourseInput" placeholder="Enter your intended course name" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Intake Date <span class="text-error">*</span></label>
@@ -411,7 +423,7 @@ Back to Home
 <div class="flex items-start gap-3 mb-8">
 <input type="checkbox" id="consent" required class="mt-1 rounded border-outline-variant/40 text-secondary focus:ring-secondary"/>
 <label for="consent" class="text-sm text-on-surface-variant leading-relaxed">
-I consent to DCAP collecting and processing my personal data for the purpose of this application. I declare that all information provided is true and accurate to the best of my knowledge. I understand that any inaccurate or misleading information may result in the rejection of my application. <span class="text-error">*</span>
+I consent to DCAP collecting and processing my personal data for the purpose of this application. I declare that all information provided is true and accurate to the best of my knowledge. I understand that any inaccurate or misleading information may result in the rejection of my application. I consent to DCAP collecting, using, and disclosing my personal data to its partners and affiliates for program-related purposes, and to contact me regarding related updates and marketing communications. <span class="text-error">*</span>
 </label>
 </div>
 <button type="submit" class="w-full bg-tertiary-fixed text-on-tertiary-fixed py-4 md:py-5 rounded-full font-label font-bold text-base md:text-lg uppercase tracking-wider hover:brightness-110 transition-all editorial-shadow active:scale-[0.98]">
@@ -447,7 +459,7 @@ document.getElementById('intakeDate').addEventListener('input', function(e) {
     e.target.value = v;
 });
 
-// Parental Status → toggle Parent 2 section
+// Marital Status → toggle Parent 2 section
 (function() {
     var statusSelect = document.getElementById('parentalStatus');
     var parent2 = document.getElementById('parent2Section');
@@ -500,8 +512,9 @@ document.getElementById('intakeDate').addEventListener('input', function(e) {
 
         var total = v1 + v2;
         var best = '';
-        if (total <= 5000) best = '5000';
+        if (total < 5000) best = '5000';
         else if (total <= 10000) best = '10000';
+        else if (total <= 15000) best = '15000';
         else if (total <= 20000) best = '20000';
         else best = '20001';
 
@@ -511,6 +524,24 @@ document.getElementById('intakeDate').addEventListener('input', function(e) {
 
     incomeP1.addEventListener('change', updateHouseholdIncome);
     incomeP2.addEventListener('change', updateHouseholdIncome);
+})();
+
+// Course "Others" → show text input
+(function() {
+    var courseSelect = document.getElementById('courseName');
+    var otherDiv = document.getElementById('otherCourseDiv');
+    var otherInput = document.getElementById('otherCourseInput');
+
+    courseSelect.addEventListener('change', function() {
+        if (this.value === 'Others') {
+            otherDiv.classList.remove('hidden');
+            otherInput.setAttribute('required', '');
+        } else {
+            otherDiv.classList.add('hidden');
+            otherInput.removeAttribute('required');
+            otherInput.value = '';
+        }
+    });
 })();
 </script>
 </body>
