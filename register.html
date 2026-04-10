@@ -124,7 +124,7 @@ Back to Home
 
 <!-- Form -->
 <section class="py-8 md:py-16 px-4 md:px-8">
-<form class="max-w-4xl mx-auto space-y-8 md:space-y-12" onsubmit="event.preventDefault(); alert('Thank you for registering! We will be in touch shortly.');">
+<form id="registrationForm" class="max-w-4xl mx-auto space-y-8 md:space-y-12">
 
 <!-- ═══════════════════════════════════════ -->
 <!-- PARENT 1 DETAILS -->
@@ -136,15 +136,15 @@ Back to Home
 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
 <div class="md:col-span-2">
 <label class="block text-sm font-semibold text-on-surface mb-1">Full Name <span class="text-error">*</span></label>
-<input type="text" required placeholder="As per IC / Passport" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="text" id="p1FullName" required placeholder="As per IC / Passport" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Date of Birth <span class="text-error">*</span></label>
-<input type="date" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="date" id="p1DOB" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Gender <span class="text-error">*</span></label>
-<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<select id="p1Gender" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
 <option value="">Select</option>
 <option>Male</option>
 <option>Female</option>
@@ -152,7 +152,7 @@ Back to Home
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">IC No <span class="text-error">*</span></label>
-<input type="text" required placeholder="e.g. 880101-14-5678" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="text" id="p1IC" required placeholder="e.g. 880101-14-5678" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Marital Status <span class="text-error">*</span></label>
@@ -164,19 +164,19 @@ Back to Home
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Phone Number <span class="text-error">*</span></label>
-<input type="tel" required placeholder="e.g. 012-345 6789" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="tel" id="p1Phone" required placeholder="e.g. 012-345 6789" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Email Address <span class="text-error">*</span></label>
-<input type="email" required placeholder="email@example.com" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="email" id="p1Email" required placeholder="email@example.com" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div class="md:col-span-2">
 <label class="block text-sm font-semibold text-on-surface mb-1">Current Address <span class="text-error">*</span></label>
-<textarea required rows="3" placeholder="Full residential address" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"></textarea>
+<textarea id="p1Address" required rows="3" placeholder="Full residential address" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"></textarea>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Relationship to Student <span class="text-error">*</span></label>
-<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<select id="p1Relationship" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
 <option value="">Select</option>
 <option>Father</option>
 <option>Mother</option>
@@ -190,7 +190,7 @@ Back to Home
 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Employment Status <span class="text-error">*</span></label>
-<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<select id="p1EmploymentStatus" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
 <option value="">Select</option>
 <option>Employed (full-time)</option>
 <option>Employed (part-time)</option>
@@ -202,11 +202,11 @@ Back to Home
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Occupation / Job Title</label>
-<input type="text" placeholder="e.g. Engineer" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="text" id="p1Occupation" placeholder="e.g. Engineer" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Employer Name</label>
-<input type="text" placeholder="Company name" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="text" id="p1Employer" placeholder="Company name" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Monthly Personal Income <span class="text-error">*</span></label>
@@ -233,15 +233,15 @@ Back to Home
 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
 <div class="md:col-span-2">
 <label class="block text-sm font-semibold text-on-surface mb-1">Full Name <span class="text-error">*</span></label>
-<input type="text" required placeholder="As per IC / Passport" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"/>
+<input type="text" id="p2FullName" required placeholder="As per IC / Passport" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Date of Birth <span class="text-error">*</span></label>
-<input type="date" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"/>
+<input type="date" id="p2DOB" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Gender <span class="text-error">*</span></label>
-<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field">
+<select id="p2Gender" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field">
 <option value="">Select</option>
 <option>Male</option>
 <option>Female</option>
@@ -249,15 +249,15 @@ Back to Home
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">IC No <span class="text-error">*</span></label>
-<input type="text" required placeholder="e.g. 880101-14-5678" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"/>
+<input type="text" id="p2IC" required placeholder="e.g. 880101-14-5678" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Phone Number <span class="text-error">*</span></label>
-<input type="tel" required placeholder="e.g. 012-345 6789" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"/>
+<input type="tel" id="p2Phone" required placeholder="e.g. 012-345 6789" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Email Address</label>
-<input type="email" placeholder="email@example.com" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="email" id="p2Email" placeholder="email@example.com" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div class="md:col-span-2">
 <label class="block text-sm font-semibold text-on-surface mb-1">Current Address <span class="text-error">*</span></label>
@@ -265,11 +265,11 @@ Back to Home
 <input type="checkbox" id="sameAddress" class="rounded border-outline-variant/40 text-secondary focus:ring-secondary"/>
 <label for="sameAddress" class="text-sm text-on-surface-variant">Same as Parent 1</label>
 </div>
-<textarea rows="3" placeholder="Full residential address" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"></textarea>
+<textarea id="p2Address" rows="3" placeholder="Full residential address" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"></textarea>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Relationship to Student <span class="text-error">*</span></label>
-<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field">
+<select id="p2Relationship" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field">
 <option value="">Select</option>
 <option>Father</option>
 <option>Mother</option>
@@ -283,7 +283,7 @@ Back to Home
 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Employment Status <span class="text-error">*</span></label>
-<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field">
+<select id="p2EmploymentStatus" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field">
 <option value="">Select</option>
 <option>Employed (full-time)</option>
 <option>Employed (part-time)</option>
@@ -295,11 +295,11 @@ Back to Home
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Occupation / Job Title</label>
-<input type="text" placeholder="e.g. Engineer" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="text" id="p2Occupation" placeholder="e.g. Engineer" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Employer Name</label>
-<input type="text" placeholder="Company name" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="text" id="p2Employer" placeholder="Company name" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Monthly Personal Income <span class="text-error">*</span></label>
@@ -338,7 +338,7 @@ Back to Home
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Number of Dependents &amp; Children <span class="text-error">*</span></label>
-<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<select id="dependents" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
 <option value="">Select</option>
 <option>1</option>
 <option>2</option>
@@ -350,7 +350,7 @@ Back to Home
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Preferred Monthly Loan Commitment <span class="text-error">*</span></label>
-<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<select id="preferredLoan" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
 <option value="">Select</option>
 <option>&lt; RM600</option>
 <option>RM600 - RM800</option>
@@ -360,7 +360,7 @@ Back to Home
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Will you be applying for PTPTN? <span class="text-error">*</span></label>
-<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<select id="ptptn" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
 <option value="">Select</option>
 <option>Yes</option>
 <option>No</option>
@@ -379,11 +379,11 @@ Back to Home
 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
 <div class="md:col-span-2">
 <label class="block text-sm font-semibold text-on-surface mb-1">Student Name <span class="text-error">*</span></label>
-<input type="text" required placeholder="Full name as per IC" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="text" id="studentName" required placeholder="Full name as per IC" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Level of Study <span class="text-error">*</span></label>
-<select required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<select id="levelOfStudy" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
 <option value="">Select</option>
 <option>Foundation</option>
 <option>Diploma</option>
@@ -426,9 +426,10 @@ Back to Home
 I consent to DCAP collecting and processing my personal data for the purpose of this application. I declare that all information provided is true and accurate to the best of my knowledge. I understand that any inaccurate or misleading information may result in the rejection of my application. I consent to DCAP collecting, using, and disclosing my personal data to its partners and affiliates for program-related purposes, and to contact me regarding related updates and marketing communications. <span class="text-error">*</span>
 </label>
 </div>
-<button type="submit" class="w-full bg-tertiary-fixed text-on-tertiary-fixed py-4 md:py-5 rounded-full font-label font-bold text-base md:text-lg uppercase tracking-wider hover:brightness-110 transition-all editorial-shadow active:scale-[0.98]">
+<button id="submitBtn" type="submit" class="w-full bg-tertiary-fixed text-on-tertiary-fixed py-4 md:py-5 rounded-full font-label font-bold text-base md:text-lg uppercase tracking-wider hover:brightness-110 transition-all editorial-shadow active:scale-[0.98]">
 Submit Registration
 </button>
+<p id="submitError" class="text-center text-error text-sm mt-4 hidden">Something went wrong. Please try again.</p>
 <p class="text-center text-on-surface-variant text-xs mt-4">By submitting, you agree to our terms and conditions.</p>
 </fieldset>
 
@@ -446,6 +447,8 @@ Submit Registration
 </footer>
 
 <script>
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxsw6ux9kc_HJM9MHceF4wc1gi6PYZ2YZ6OWo3zndlTROcmpnRQUN56cifOzlyyznmQvg/exec';
+
 // Intake date MM/YY mask
 document.getElementById('intakeDate').addEventListener('keydown', function(e) {
     if (e.key === 'Backspace' && this.value.length === 4 && this.value[2] === '/') {
@@ -526,6 +529,28 @@ document.getElementById('intakeDate').addEventListener('input', function(e) {
     incomeP2.addEventListener('change', updateHouseholdIncome);
 })();
 
+// "Same as Parent 1" address checkbox
+(function() {
+    var cb = document.getElementById('sameAddress');
+    var p2Addr = document.getElementById('p2Address');
+    var p1Addr = document.getElementById('p1Address');
+
+    cb.addEventListener('change', function() {
+        if (this.checked) {
+            p2Addr.value = p1Addr.value;
+            p2Addr.readOnly = true;
+            p2Addr.classList.add('opacity-60');
+        } else {
+            p2Addr.readOnly = false;
+            p2Addr.classList.remove('opacity-60');
+        }
+    });
+
+    p1Addr.addEventListener('input', function() {
+        if (cb.checked) p2Addr.value = p1Addr.value;
+    });
+})();
+
 // Course "Others" → show text input
 (function() {
     var courseSelect = document.getElementById('courseName');
@@ -543,6 +568,75 @@ document.getElementById('intakeDate').addEventListener('input', function(e) {
         }
     });
 })();
+
+// Form submission → Google Sheets
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var btn = document.getElementById('submitBtn');
+    var errMsg = document.getElementById('submitError');
+    errMsg.classList.add('hidden');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    var incomeLabels = { '3000': '< RM5,000', '6500': 'RM5,000 - RM8,000', '9000': 'RM8,001 - RM10,000', '12500': 'RM10,001 - RM15,000', '20000': '> RM15,000' };
+    var householdLabels = { '5000': '< RM5,000', '10000': 'RM5,000 - RM10,000', '15000': 'RM10,001 - RM15,000', '20000': 'RM15,001 - RM20,000', '20001': '> RM20,000' };
+
+    var v = function(id) { var el = document.getElementById(id); return el ? el.value : ''; };
+    var sel = function(id) { var el = document.getElementById(id); return el ? el.options[el.selectedIndex]?.text || '' : ''; };
+
+    var data = {
+        maritalStatus: sel('parentalStatus'),
+        p1FullName: v('p1FullName'),
+        p1DOB: v('p1DOB'),
+        p1Gender: sel('p1Gender'),
+        p1IC: v('p1IC'),
+        p1Phone: v('p1Phone'),
+        p1Email: v('p1Email'),
+        p1Address: v('p1Address'),
+        p1Relationship: sel('p1Relationship'),
+        p1EmploymentStatus: sel('p1EmploymentStatus'),
+        p1Occupation: v('p1Occupation'),
+        p1Employer: v('p1Employer'),
+        p1MonthlyIncome: incomeLabels[v('incomeP1')] || v('incomeP1'),
+        p2FullName: v('p2FullName'),
+        p2DOB: v('p2DOB'),
+        p2Gender: sel('p2Gender'),
+        p2IC: v('p2IC'),
+        p2Phone: v('p2Phone'),
+        p2Email: v('p2Email'),
+        p2Address: v('p2Address'),
+        p2Relationship: sel('p2Relationship'),
+        p2EmploymentStatus: sel('p2EmploymentStatus'),
+        p2Occupation: v('p2Occupation'),
+        p2Employer: v('p2Employer'),
+        p2MonthlyIncome: incomeLabels[v('incomeP2')] || v('incomeP2'),
+        householdIncome: householdLabels[v('householdIncome')] || v('householdIncome'),
+        dependents: sel('dependents'),
+        preferredLoan: sel('preferredLoan'),
+        ptptn: sel('ptptn'),
+        studentName: v('studentName'),
+        levelOfStudy: sel('levelOfStudy'),
+        courseName: sel('courseName'),
+        otherCourse: v('otherCourseInput'),
+        intakeDate: v('intakeDate')
+    };
+
+    fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(function() {
+        window.location.href = 'thank-you.html';
+    })
+    .catch(function() {
+        errMsg.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = 'Submit Registration';
+    });
+});
 </script>
 </body>
 </html>
