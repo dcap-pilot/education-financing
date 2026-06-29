@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DCAP | Register</title>
+<title>DCAP | Financing Application</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -111,12 +111,9 @@ Back to Home
 <!-- Header -->
 <section class="bg-gradient-to-br from-primary to-primary-container px-4 md:px-8 py-12 md:py-20 text-center">
 <div class="max-w-3xl mx-auto">
-<h1 class="text-3xl md:text-5xl font-black text-white font-headline tracking-tight mb-4">Pre-Launch Registration</h1>
-<p class="text-on-primary-container text-base md:text-lg max-w-2xl mx-auto">Complete the form below to begin your education financing journey.</p>
-<div class="inline-block bg-tertiary-fixed/15 backdrop-blur-sm rounded-full px-5 py-2 mt-4">
-<p class="text-tertiary-fixed text-sm font-bold uppercase tracking-wider">Limited slots available, on first come first served basis</p>
-</div>
-<div class="inline-block bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 mt-3">
+<h1 class="text-3xl md:text-5xl font-black text-white font-headline tracking-tight mb-4">Financing Application</h1>
+<p class="text-on-primary-container text-base md:text-lg max-w-2xl mx-auto">Complete the application below to apply for your education financing.</p>
+<div class="inline-block bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 mt-4">
 <p class="text-white/90 text-sm font-medium">All fields marked with <span class="text-tertiary-fixed font-bold">*</span> are required.</p>
 </div>
 </div>
@@ -126,220 +123,70 @@ Back to Home
 <section class="py-8 md:py-16 px-4 md:px-8">
 <form id="registrationForm" class="max-w-4xl mx-auto space-y-8 md:space-y-12">
 
+<!-- Step progress indicator -->
+<div id="formProgress" class="max-w-4xl mx-auto">
+<div class="flex items-center justify-between mb-2">
+<span id="stepLabel" class="text-base md:text-lg font-black font-headline text-primary"></span>
+<span id="stepCount" class="text-xs font-semibold text-on-surface-variant whitespace-nowrap ml-3"></span>
+</div>
+<div class="h-2.5 w-full rounded-full bg-surface-container overflow-hidden">
+<div id="progressBar" class="h-full bg-secondary rounded-full transition-all duration-300 ease-out" style="width:0%"></div>
+</div>
+</div>
+
 <!-- ═══════════════════════════════════════ -->
-<!-- PARENT 1 DETAILS -->
+<!-- APPLICANT DETAILS -->
 <!-- ═══════════════════════════════════════ -->
 <fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
-<legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Parent 1</legend>
-<p class="text-on-surface-variant text-sm mb-8 clear-both">Primary applicant details (applying parent)</p>
+<legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Applicant Details</legend>
+<p class="text-on-surface-variant text-sm mb-8 clear-both">Details of the financing applicant</p>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
 <div class="md:col-span-2">
 <label class="block text-sm font-semibold text-on-surface mb-1">Full Name <span class="text-error">*</span></label>
-<input type="text" id="p1FullName" required placeholder="As per IC / Passport" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="text" id="aFullName" required placeholder="As per NRIC" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Date of Birth <span class="text-error">*</span></label>
-<input type="date" id="p1DOB" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<label class="block text-sm font-semibold text-on-surface mb-2">Gender <span class="text-error">*</span></label>
+<div class="flex gap-6 pt-1">
+<label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
+<input type="radio" name="aGender" value="Male" required class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
+Male
+</label>
+<label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
+<input type="radio" name="aGender" value="Female" class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
+Female
+</label>
+</div>
 </div>
 <div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Gender <span class="text-error">*</span></label>
-<select id="p1Gender" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
-<option value="">Select</option>
-<option>Male</option>
-<option>Female</option>
+<label class="block text-sm font-semibold text-on-surface mb-1">NRIC No <span class="text-error">*</span></label>
+<input type="text" id="aNRIC" required inputmode="numeric" maxlength="14" placeholder="880101-14-5678" class="nric-input w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm tracking-wider focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Race <span class="text-error">*</span></label>
+<select id="aRace" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="" disabled selected>Select</option>
+<option>Malay</option>
+<option>Chinese</option>
+<option>Indian</option>
+<option>Others</option>
 </select>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">IC No <span class="text-error">*</span></label>
-<input type="text" id="p1IC" required placeholder="e.g. 880101-14-5678" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Marital Status <span class="text-error">*</span></label>
-<select id="parentalStatus" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
-<option value="">Select</option>
-<option value="married">Married</option>
-<option value="single">Single Parent</option>
+<select id="aMaritalStatus" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="" disabled selected>Select</option>
+<option>Single</option>
+<option>Married</option>
+<option>Divorced</option>
+<option>Widowed</option>
 </select>
 </div>
 <div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Phone Number <span class="text-error">*</span></label>
-<input type="tel" id="p1Phone" required placeholder="e.g. 012-345 6789" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Email Address <span class="text-error">*</span></label>
-<input type="email" id="p1Email" required placeholder="email@example.com" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
-</div>
-<div class="md:col-span-2">
-<label class="block text-sm font-semibold text-on-surface mb-1">Current Address <span class="text-error">*</span></label>
-<textarea id="p1Address" required rows="3" placeholder="Full residential address" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"></textarea>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Relationship to Student <span class="text-error">*</span></label>
-<select id="p1Relationship" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
-<option value="">Select</option>
-<option>Father</option>
-<option>Mother</option>
-</select>
-</div>
-</div>
-
-<!-- Employment sub-section -->
-<div class="border-t border-outline-variant/20 mt-8 pt-8">
-<h3 class="text-lg font-bold font-headline text-primary mb-5">Employment Details</h3>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Employment Status <span class="text-error">*</span></label>
-<select id="p1EmploymentStatus" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
-<option value="">Select</option>
-<option>Employed (full-time)</option>
-<option>Employed (part-time)</option>
-<option>Self-employed</option>
-<option>Retired</option>
-<option>Homemaker</option>
-<option>Unemployed</option>
-</select>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Occupation / Job Title</label>
-<input type="text" id="p1Occupation" placeholder="e.g. Engineer" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Employer Name</label>
-<input type="text" id="p1Employer" placeholder="Company name" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Monthly Personal Income <span class="text-error">*</span></label>
-<select id="incomeP1" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
-<option value="">Select</option>
-<option value="3000">&lt; RM5,000</option>
-<option value="6500">RM5,000 - RM8,000</option>
-<option value="9000">RM8,001 - RM10,000</option>
-<option value="12500">RM10,001 - RM15,000</option>
-<option value="20000">&gt; RM15,000</option>
-</select>
-</div>
-</div>
-</div>
-</fieldset>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- PARENT 2 DETAILS -->
-<!-- ═══════════════════════════════════════ -->
-<fieldset id="parent2Section" class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow transition-all duration-300">
-<legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Parent 2</legend>
-<p class="text-on-surface-variant text-sm mb-8 clear-both">Spouse / second parent details</p>
-
-<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
-<div class="md:col-span-2">
-<label class="block text-sm font-semibold text-on-surface mb-1">Full Name <span class="text-error">*</span></label>
-<input type="text" id="p2FullName" required placeholder="As per IC / Passport" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"/>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Date of Birth <span class="text-error">*</span></label>
-<input type="date" id="p2DOB" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"/>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Gender <span class="text-error">*</span></label>
-<select id="p2Gender" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field">
-<option value="">Select</option>
-<option>Male</option>
-<option>Female</option>
-</select>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">IC No <span class="text-error">*</span></label>
-<input type="text" id="p2IC" required placeholder="e.g. 880101-14-5678" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"/>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Phone Number <span class="text-error">*</span></label>
-<input type="tel" id="p2Phone" required placeholder="e.g. 012-345 6789" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"/>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Email Address</label>
-<input type="email" id="p2Email" placeholder="email@example.com" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
-</div>
-<div class="md:col-span-2">
-<label class="block text-sm font-semibold text-on-surface mb-1">Current Address <span class="text-error">*</span></label>
-<div class="flex items-center gap-2 mb-2">
-<input type="checkbox" id="sameAddress" class="rounded border-outline-variant/40 text-secondary focus:ring-secondary"/>
-<label for="sameAddress" class="text-sm text-on-surface-variant">Same as Parent 1</label>
-</div>
-<textarea id="p2Address" rows="3" placeholder="Full residential address" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field"></textarea>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Relationship to Student <span class="text-error">*</span></label>
-<select id="p2Relationship" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field">
-<option value="">Select</option>
-<option>Father</option>
-<option>Mother</option>
-</select>
-</div>
-</div>
-
-<!-- Employment sub-section -->
-<div class="border-t border-outline-variant/20 mt-8 pt-8">
-<h3 class="text-lg font-bold font-headline text-primary mb-5">Employment Details</h3>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Employment Status <span class="text-error">*</span></label>
-<select id="p2EmploymentStatus" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field">
-<option value="">Select</option>
-<option>Employed (full-time)</option>
-<option>Employed (part-time)</option>
-<option>Self-employed</option>
-<option>Retired</option>
-<option>Homemaker</option>
-<option>Unemployed</option>
-</select>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Occupation / Job Title</label>
-<input type="text" id="p2Occupation" placeholder="e.g. Engineer" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Employer Name</label>
-<input type="text" id="p2Employer" placeholder="Company name" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Monthly Personal Income <span class="text-error">*</span></label>
-<select id="incomeP2" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary p2-field">
-<option value="">Select</option>
-<option value="3000">&lt; RM5,000</option>
-<option value="6500">RM5,000 - RM8,000</option>
-<option value="9000">RM8,001 - RM10,000</option>
-<option value="12500">RM10,001 - RM15,000</option>
-<option value="20000">&gt; RM15,000</option>
-</select>
-</div>
-</div>
-</div>
-</fieldset>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- HOUSEHOLD & FINANCING -->
-<!-- ═══════════════════════════════════════ -->
-<fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
-<legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Income &amp; Financing</legend>
-<p class="text-on-surface-variant text-sm mb-8 clear-both">Household income and financing preferences</p>
-
-<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Household Income <span class="text-error">*</span></label>
-<select id="householdIncome" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
-<option value="">Select</option>
-<option value="5000">&lt; RM5,000</option>
-<option value="10000">RM5,000 - RM10,000</option>
-<option value="15000">RM10,001 - RM15,000</option>
-<option value="20000">RM15,001 - RM20,000</option>
-<option value="20001">&gt; RM20,000</option>
-</select>
-<p id="householdHint" class="text-xs text-secondary mt-1 hidden">Auto-estimated from parent incomes. You may adjust if needed.</p>
-</div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Number of Dependents &amp; Children <span class="text-error">*</span></label>
-<select id="dependents" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
-<option value="">Select</option>
+<label class="block text-sm font-semibold text-on-surface mb-1">Number of Dependents <span class="text-error">*</span></label>
+<select id="aDependents" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="" disabled selected>Select</option>
 <option>1</option>
 <option>2</option>
 <option>3</option>
@@ -349,22 +196,193 @@ Back to Home
 </select>
 </div>
 <div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Preferred Monthly Loan Commitment <span class="text-error">*</span></label>
-<select id="preferredLoan" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
-<option value="">Select</option>
-<option>&lt; RM600</option>
-<option>RM600 - RM800</option>
-<option>RM800 - RM1,000</option>
-<option>&gt; RM1,000</option>
+<label class="block text-sm font-semibold text-on-surface mb-1">Phone Number <span class="text-error">*</span></label>
+<div class="flex">
+<span class="inline-flex items-center rounded-l-xl bg-secondary px-4 text-sm font-bold text-white">+60</span>
+<input type="tel" id="aPhone" required inputmode="numeric" placeholder="12-345 6789" class="w-full rounded-r-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Email Address <span class="text-error">*</span></label>
+<input type="email" id="aEmail" required placeholder="email@example.com" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-2">Relationship to Student <span class="text-error">*</span></label>
+<div class="flex flex-wrap gap-x-6 gap-y-2 pt-1">
+<label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
+<input type="radio" name="aRelationship" value="Father" required class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
+Father
+</label>
+<label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
+<input type="radio" name="aRelationship" value="Mother" class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
+Mother
+</label>
+<label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
+<input type="radio" name="aRelationship" value="Guardian" class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
+Guardian
+</label>
+</div>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-1">Address Line 1 <span class="text-error">*</span></label>
+<input type="text" id="aAddr1" required placeholder="Unit / street address" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-1">Address Line 2 <span class="text-error">*</span></label>
+<input type="text" id="aAddr2" required placeholder="Area / district" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Postcode <span class="text-error">*</span></label>
+<input type="text" id="aPostcode" required inputmode="numeric" maxlength="5" placeholder="e.g. 50450" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">City <span class="text-error">*</span></label>
+<input type="text" id="aCity" required placeholder="e.g. Kuala Lumpur" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">State <span class="text-error">*</span></label>
+<select id="aState" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm uppercase focus:border-secondary focus:ring-secondary">
+<option value="" disabled selected>Select</option>
+<option>Johor</option>
+<option>Kedah</option>
+<option>Kelantan</option>
+<option>Melaka</option>
+<option>Negeri Sembilan</option>
+<option>Pahang</option>
+<option>Perak</option>
+<option>Perlis</option>
+<option>Pulau Pinang</option>
+<option>Sabah</option>
+<option>Sarawak</option>
+<option>Selangor</option>
+<option>Terengganu</option>
+<option>Kuala Lumpur</option>
+<option>Labuan</option>
+<option>Putrajaya</option>
+</select>
+</div>
+</div>
+
+</fieldset>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- EMPLOYMENT DETAILS -->
+<!-- ═══════════════════════════════════════ -->
+<fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
+<legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Employment Details</legend>
+<p class="text-on-surface-variant text-sm mb-8 clear-both">Employment and income information of the applicant</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Occupation / Job Title <span class="text-error">*</span></label>
+<input type="text" id="aOccupation" required placeholder="e.g. Engineer" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Employment Status <span class="text-error">*</span></label>
+<select id="aEmploymentStatus" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="" disabled selected>Select</option>
+<option>Permanent</option>
+<option>Probation</option>
+<option>Contract</option>
+<option>Part Time</option>
+<option>Internship</option>
+<option>GIG Economy Worker</option>
+<option>Freelance</option>
 </select>
 </div>
 <div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Will you be applying for PTPTN? <span class="text-error">*</span></label>
-<select id="ptptn" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
-<option value="">Select</option>
-<option>Yes</option>
-<option>No</option>
+<label class="block text-sm font-semibold text-on-surface mb-1">Employer Name <span class="text-error">*</span></label>
+<input type="text" id="aEmployer" required placeholder="Company name" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Employment Length (years) <span class="text-error">*</span></label>
+<input type="number" id="aEmploymentLength" required min="0" step="0.5" placeholder="e.g. 5" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Employer's Contact Number <span class="text-error">*</span></label>
+<div class="flex">
+<span class="inline-flex items-center rounded-l-xl bg-secondary px-4 text-sm font-bold text-white">+60</span>
+<input type="tel" id="aEmployerPhone" required inputmode="numeric" placeholder="3-1234 5678" class="w-full rounded-r-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Monthly Gross Income (RM) <span class="text-error">*</span></label>
+<input type="number" id="aGrossIncome" required min="0" step="0.01" placeholder="e.g. 5000.00" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Monthly Net Income (RM) <span class="text-error">*</span></label>
+<input type="number" id="aNetIncome" required min="0" step="0.01" placeholder="e.g. 3800.00" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-1">Employer's Address Line 1 <span class="text-error">*</span></label>
+<input type="text" id="aEmpAddr1" required placeholder="Unit / street address" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-1">Employer's Address Line 2 <span class="text-error">*</span></label>
+<input type="text" id="aEmpAddr2" required placeholder="Area / district" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Employer's Postcode <span class="text-error">*</span></label>
+<input type="text" id="aEmpPostcode" required inputmode="numeric" maxlength="5" placeholder="e.g. 50450" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Employer's City <span class="text-error">*</span></label>
+<input type="text" id="aEmpCity" required placeholder="e.g. Kuala Lumpur" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Employer's State <span class="text-error">*</span></label>
+<select id="aEmpState" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm uppercase focus:border-secondary focus:ring-secondary">
+<option value="" disabled selected>Select</option>
+<option>Johor</option>
+<option>Kedah</option>
+<option>Kelantan</option>
+<option>Melaka</option>
+<option>Negeri Sembilan</option>
+<option>Pahang</option>
+<option>Perak</option>
+<option>Perlis</option>
+<option>Pulau Pinang</option>
+<option>Sabah</option>
+<option>Sarawak</option>
+<option>Selangor</option>
+<option>Terengganu</option>
+<option>Kuala Lumpur</option>
+<option>Labuan</option>
+<option>Putrajaya</option>
 </select>
+</div>
+</div>
+</fieldset>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- FINANCING DETAILS -->
+<!-- ═══════════════════════════════════════ -->
+<fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
+<legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Financing Details</legend>
+<p class="text-on-surface-variant text-sm mb-8 clear-both">Loan amount and financing preferences</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Interested Loan Amount (RM) <span class="text-error">*</span></label>
+<p class="text-xs text-on-surface-variant mb-1">Min RM30,000 &middot; Max RM200,000 &middot; In multiples of RM1,000</p>
+<input type="number" id="loanAmount" required min="30000" max="200000" step="1000" placeholder="e.g. 50000.00" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Tenure</label>
+<input type="text" id="tenure" value="8 years (96 months)" readonly class="w-full rounded-xl border-outline-variant/40 bg-surface-container px-4 py-3 text-sm text-on-surface-variant cursor-not-allowed"/>
+<p class="text-xs text-on-surface-variant mt-1">Only this tenure option is available for this program.</p>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-2">Will you be applying for PTPTN? <span class="text-error">*</span></label>
+<div class="flex gap-6">
+<label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
+<input type="radio" name="ptptn" value="Yes" required class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
+Yes
+</label>
+<label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
+<input type="radio" name="ptptn" value="No" class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
+No
+</label>
+</div>
 </div>
 </div>
 </fieldset>
@@ -374,44 +392,124 @@ Back to Home
 <!-- ═══════════════════════════════════════ -->
 <fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
 <legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Student Details</legend>
-<p class="text-on-surface-variant text-sm mb-8 clear-both">Information about the student enrolling at APU</p>
+<p class="text-on-surface-variant text-sm mb-8 clear-both">Information about the student</p>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
 <div class="md:col-span-2">
 <label class="block text-sm font-semibold text-on-surface mb-1">Student Name <span class="text-error">*</span></label>
-<input type="text" id="studentName" required placeholder="Full name as per IC" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<input type="text" id="studentName" required placeholder="Full name as per NRIC" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Student NRIC No <span class="text-error">*</span></label>
+<input type="text" id="studentNRIC" required inputmode="numeric" maxlength="14" placeholder="050101-14-5678" class="nric-input w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm tracking-wider focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Student Contact No <span class="text-error">*</span></label>
+<div class="flex">
+<span class="inline-flex items-center rounded-l-xl bg-secondary px-4 text-sm font-bold text-white">+60</span>
+<input type="tel" id="studentContact" required inputmode="numeric" placeholder="12-345 6789" class="w-full rounded-r-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-1">Student Email <span class="text-error">*</span></label>
+<input type="email" id="studentEmail" required placeholder="student@example.com" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Level of Study <span class="text-error">*</span></label>
 <select id="levelOfStudy" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
-<option value="">Select</option>
+<option value="" disabled selected>Select</option>
 <option>Foundation</option>
 <option>Diploma</option>
 <option>Degree</option>
 </select>
 </div>
 <div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Course Name <span class="text-error">*</span></label>
-<select id="courseName" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
-<option value="">Select a course</option>
-<option>Diploma in ICT</option>
-<option>Diploma in Mechatronic Engineering</option>
-<option>Foundation (non-Engineering)</option>
-<option>Foundation (Engineering)</option>
-<option>Bachelor of Computer Science (Artificial Intelligence)</option>
-<option>Bachelor of Science in Computer Science (Cyber Security)</option>
-<option>Bachelor of Mechatronic Engineering</option>
-<option>Bachelor of Financial Technology</option>
-<option value="Others">Others</option>
-</select>
-</div>
-<div id="otherCourseDiv" class="md:col-span-2 hidden">
-<label class="block text-sm font-semibold text-on-surface mb-1">Please specify course <span class="text-error">*</span></label>
-<input type="text" id="otherCourseInput" placeholder="Enter your intended course name" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
-</div>
-<div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Intake Date <span class="text-error">*</span></label>
 <input type="text" id="intakeDate" inputmode="numeric" required maxlength="5" placeholder="MM/YY" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-1">Course Name <span class="text-error">*</span></label>
+<input type="text" id="courseName" required placeholder="Full course title" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+<p class="text-xs text-on-surface-variant mt-1">Please provide the full title of the course name, matching the letter of offer.</p>
+</div>
+</div>
+</fieldset>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- APPLICATION REFERENCE -->
+<!-- ═══════════════════════════════════════ -->
+<fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
+<legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Application Reference</legend>
+<p class="text-on-surface-variant text-sm mb-8 clear-both">A reference for the financing applicant</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+<div class="md:col-span-2">
+<label class="block text-sm font-semibold text-on-surface mb-1">Reference Name <span class="text-error">*</span></label>
+<input type="text" id="refName" required placeholder="Full name" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Reference Contact Number <span class="text-error">*</span></label>
+<div class="flex">
+<span class="inline-flex items-center rounded-l-xl bg-secondary px-4 text-sm font-bold text-white">+60</span>
+<input type="tel" id="refContact" required inputmode="numeric" placeholder="12-345 6789" class="w-full rounded-r-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">Relationship with Financing Applicant <span class="text-error">*</span></label>
+<select id="refRelationship" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="" disabled selected>Select</option>
+<option>Spouse</option>
+<option>Siblings</option>
+<option>Parents</option>
+<option>In-laws</option>
+</select>
+</div>
+</div>
+</fieldset>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- DOCUMENT REQUIREMENTS -->
+<!-- ═══════════════════════════════════════ -->
+<fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
+<legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Document Requirements</legend>
+<p class="text-on-surface-variant text-sm mb-8 clear-both">Please upload the following documents. Accepted formats: PDF, JPG, PNG (max 10MB each).</p>
+
+<div class="space-y-5">
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">a) NRIC (Front &amp; Back) <span class="text-error">*</span></label>
+<input type="file" id="docNRIC" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">b) 3 Months&#39; Payslip <span class="text-error">*</span></label>
+<input type="file" id="docPayslip" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">c) 3 Months&#39; Bank Statement <span class="text-error">*</span></label>
+<input type="file" id="docBankStatement" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">d) Latest 12 Months EPF Statement <span class="text-error">*</span></label>
+<input type="file" id="docEPF" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">e) Letter of Offer (Indicating the Total Fee) <span class="text-error">*</span></label>
+<input type="file" id="docLetterOffer" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">f) Tuition Fee Structure <span class="text-error">*</span></label>
+<input type="file" id="docFeeStructure" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">g) Course Invoice from University <span class="text-error">*</span></label>
+<input type="file" id="docInvoice" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">h) Authorisation Letter <span class="text-error">*</span></label>
+<input type="file" id="docAuthLetter" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-1">i) Subsidy Assessment Form <span class="text-error">*</span></label>
+<input type="file" id="docSubsidyForm" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
 </div>
 </div>
 </fieldset>
@@ -426,17 +524,32 @@ Back to Home
 I consent to DCAP collecting and processing my personal data for the purpose of this application. I declare that all information provided is true and accurate to the best of my knowledge. I understand that any inaccurate or misleading information may result in the rejection of my application. I consent to DCAP collecting, using, and disclosing my personal data to its partners and affiliates for program-related purposes, and to contact me regarding related updates and marketing communications. <span class="text-error">*</span>
 </label>
 </div>
-<button id="submitBtn" type="submit" class="w-full bg-tertiary-fixed text-on-tertiary-fixed py-4 md:py-5 rounded-full font-label font-bold text-base md:text-lg uppercase tracking-wider hover:brightness-110 transition-all editorial-shadow active:scale-[0.98]">
-Submit Registration
-</button>
 <p id="submitError" class="text-center text-error text-sm mt-4 hidden">Something went wrong. Please try again.</p>
+<p id="submitProgress" class="text-center text-secondary text-sm mt-4 hidden">Uploading documents, please wait...</p>
 <p class="text-center text-on-surface-variant text-xs mt-4">By submitting, you agree to our terms and conditions.</p>
 </fieldset>
+
+<!-- Step navigation -->
+<div class="max-w-4xl mx-auto flex flex-col sm:flex-row gap-4">
+<button type="button" id="nextBtn" class="sm:flex-1 bg-tertiary-fixed text-on-tertiary-fixed py-4 rounded-full font-label font-bold text-base uppercase tracking-wider hover:brightness-110 transition-all editorial-shadow active:scale-[0.98]">Next</button>
+<button id="submitBtn" type="submit" class="hidden sm:flex-1 bg-tertiary-fixed text-on-tertiary-fixed py-4 rounded-full font-label font-bold text-base uppercase tracking-wider hover:brightness-110 transition-all editorial-shadow active:scale-[0.98]">Submit Application</button>
+<button type="button" id="prevBtn" class="hidden sm:flex-1 bg-surface-container text-on-surface py-4 rounded-full font-label font-bold text-base uppercase tracking-wider hover:brightness-95 transition-all active:scale-[0.98]">Back</button>
+</div>
 
 </form>
 </section>
 
 </main>
+
+<!-- Submission loading overlay -->
+<div id="loadingOverlay" class="hidden fixed inset-0 z-[100] bg-primary/70 backdrop-blur-sm flex items-center justify-center px-6">
+<div class="bg-white rounded-3xl editorial-shadow max-w-sm w-full p-8 text-center">
+<div class="mx-auto mb-6 h-14 w-14 rounded-full border-4 border-surface-container border-t-secondary animate-spin"></div>
+<h3 class="text-xl font-black font-headline text-primary mb-3">Submission processing</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Please do not close this page.</p>
+<p id="loadingExtra" class="hidden text-secondary text-sm leading-relaxed font-semibold mt-3">Uploading your documents &mdash; this may take some time. Hang tight.</p>
+</div>
+</div>
 
 <!-- Footer -->
 <footer class="bg-primary w-full py-12 md:py-16 px-4 md:px-8">
@@ -447,194 +560,286 @@ Submit Registration
 </footer>
 
 <script>
-var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxsw6ux9kc_HJM9MHceF4wc1gi6PYZ2YZ6OWo3zndlTROcmpnRQUN56cifOzlyyznmQvg/exec';
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyPN6aQJr7POYUAOQ5-vHho_CNbZsP5P_gUqUIhnUlyceluLYZYCD_p6OlgnP7pkuq2/exec';
 
-// Intake date MM/YY mask
-document.getElementById('intakeDate').addEventListener('keydown', function(e) {
-    if (e.key === 'Backspace' && this.value.length === 4 && this.value[2] === '/') {
-        this.value = this.value.slice(0, 2);
-        e.preventDefault();
-    }
-});
-document.getElementById('intakeDate').addEventListener('input', function(e) {
-    let v = e.target.value.replace(/\D/g, '');
-    if (v.length >= 2) v = v.slice(0, 2) + '/' + v.slice(2, 4);
-    e.target.value = v;
+var MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB per file
+
+// Phone inputs: numeric only, strip leading zero (since +60 prefix is shown)
+document.querySelectorAll('input[type="tel"]').forEach(function(el) {
+    el.setAttribute('maxlength', '10');
+    el.addEventListener('input', function() {
+        this.value = this.value.replace(/[^\d]/g, '').slice(0, 10);
+    });
 });
 
-// Marital Status → toggle Parent 2 section
+// Auto-transform names, addresses, etc. to UPPERCASE
+['aFullName', 'aAddr1', 'aAddr2', 'aCity', 'aEmployer', 'aEmpAddr1', 'aEmpAddr2', 'aEmpCity', 'aOccupation', 'studentName', 'courseName', 'refName'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.style.textTransform = 'uppercase';
+    el.addEventListener('input', function() {
+        var start = this.selectionStart, end = this.selectionEnd;
+        this.value = this.value.toUpperCase();
+        this.setSelectionRange(start, end);
+    });
+});
+
+// NRIC mask → 6 digits - 2 digits - 4 digits (e.g. 880101-14-5678)
+document.querySelectorAll('.nric-input').forEach(function(el) {
+    el.addEventListener('input', function() {
+        var d = this.value.replace(/\D/g, '').slice(0, 12);
+        var out = d.slice(0, 6);
+        if (d.length > 6) out += '-' + d.slice(6, 8);
+        if (d.length > 8) out += '-' + d.slice(8, 12);
+        this.value = out;
+    });
+});
+
+// Intake date MM/YY mask (auto-insert "/")
 (function() {
-    var statusSelect = document.getElementById('parentalStatus');
-    var parent2 = document.getElementById('parent2Section');
-    var p2Fields = parent2.querySelectorAll('.p2-field');
+    var intake = document.getElementById('intakeDate');
+    intake.addEventListener('keydown', function(e) {
+        if (e.key === 'Backspace' && this.value.length === 4 && this.value[2] === '/') {
+            this.value = this.value.slice(0, 2);
+            e.preventDefault();
+        }
+    });
+    intake.addEventListener('input', function(e) {
+        var v = e.target.value.replace(/\D/g, '');
+        if (v.length >= 2) v = v.slice(0, 2) + '/' + v.slice(2, 4);
+        e.target.value = v;
+    });
+})();
 
-    function toggleParent2() {
-        var isSingle = statusSelect.value === 'single';
-        if (isSingle) {
-            parent2.style.maxHeight = '0';
-            parent2.style.opacity = '0';
-            parent2.style.overflow = 'hidden';
-            parent2.style.padding = '0';
-            parent2.style.marginTop = '0';
-            parent2.style.border = 'none';
-            p2Fields.forEach(function(f) { f.removeAttribute('required'); f.value = ''; });
-        } else {
-            parent2.style.maxHeight = '';
-            parent2.style.opacity = '';
-            parent2.style.overflow = '';
-            parent2.style.padding = '';
-            parent2.style.marginTop = '';
-            parent2.style.border = '';
-            p2Fields.forEach(function(f) {
-                if (f.closest('[class*="Email"]') === null && !f.labels?.[0]?.textContent?.includes('Email')) {
-                    var label = f.closest('div')?.querySelector('label');
-                    if (label && label.querySelector('.text-error')) {
-                        f.setAttribute('required', '');
-                    }
-                }
+// Postcode: numeric only
+document.querySelectorAll('#aPostcode, #aEmpPostcode').forEach(function(el) {
+    el.addEventListener('input', function() {
+        this.value = this.value.replace(/[^\d]/g, '');
+    });
+});
+
+// Loan amount: clamp to min/max, round to nearest 1000, format 2 decimals on blur
+(function() {
+    var loan = document.getElementById('loanAmount');
+    loan.addEventListener('blur', function() {
+        var raw = parseFloat(this.value);
+        if (isNaN(raw)) { this.value = ''; return; }
+        var rounded = Math.round(raw / 1000) * 1000;
+        if (rounded < 30000) rounded = 30000;
+        if (rounded > 200000) rounded = 200000;
+        this.value = rounded.toFixed(2);
+    });
+})();
+
+// Format gross/net income to 2 decimals on blur
+document.querySelectorAll('#aGrossIncome, #aNetIncome').forEach(function(el) {
+    el.addEventListener('blur', function() {
+        var n = parseFloat(this.value);
+        if (!isNaN(n)) this.value = n.toFixed(2);
+    });
+});
+
+// Normalise a phone value to +60 format
+function phone60(id) {
+    var raw = (document.getElementById(id).value || '').replace(/\D/g, '');
+    raw = raw.replace(/^0+/, '');
+    return raw ? '+60' + raw : '';
+}
+
+// Read a single file as base64
+function readFile(file) {
+    return new Promise(function(resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            resolve({
+                fileName: file.name,
+                mimeType: file.type || 'application/octet-stream',
+                data: reader.result.split(',')[1]
             });
-        }
-        updateHouseholdIncome();
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
+
+// Collect all files from the document inputs, grouped by document type
+var DOC_FIELDS = [
+    { id: 'docNRIC', label: 'NRIC' },
+    { id: 'docPayslip', label: '3 Months Payslip' },
+    { id: 'docBankStatement', label: '3 Months Bank Statement' },
+    { id: 'docEPF', label: '12 Months EPF Statement' },
+    { id: 'docLetterOffer', label: 'Letter of Offer' },
+    { id: 'docFeeStructure', label: 'Tuition Fee Structure' },
+    { id: 'docInvoice', label: 'Course Invoice' },
+    { id: 'docAuthLetter', label: 'Authorisation Letter' },
+    { id: 'docSubsidyForm', label: 'Subsidy Assessment Form' }
+];
+
+function collectFiles() {
+    var tasks = [];
+    var oversize = [];
+    DOC_FIELDS.forEach(function(d) {
+        var input = document.getElementById(d.id);
+        Array.prototype.forEach.call(input.files, function(file) {
+            if (file.size > MAX_FILE_SIZE) { oversize.push(file.name); return; }
+            tasks.push(readFile(file).then(function(f) {
+                f.docType = d.label;
+                return f;
+            }));
+        });
+    });
+    if (oversize.length) {
+        return Promise.reject('These files exceed 10MB: ' + oversize.join(', '));
+    }
+    return Promise.all(tasks);
+}
+
+var v = function(id) { var el = document.getElementById(id); return el ? el.value : ''; };
+var sel = function(id) { var el = document.getElementById(id); return el ? (el.options[el.selectedIndex] ? el.options[el.selectedIndex].text : '') : ''; };
+var radio = function(name) { var el = document.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : ''; };
+
+// ── Multi-step wizard ──────────────────────────────
+(function() {
+    var form = document.getElementById('registrationForm');
+    var steps = Array.prototype.slice.call(form.querySelectorAll(':scope > fieldset'));
+    var prevBtn = document.getElementById('prevBtn');
+    var nextBtn = document.getElementById('nextBtn');
+    var submitBtn = document.getElementById('submitBtn');
+    var stepLabel = document.getElementById('stepLabel');
+    var stepCount = document.getElementById('stepCount');
+    var progressBar = document.getElementById('progressBar');
+    var labels = ['Applicant Details', 'Employment Details', 'Financing Details', 'Student Details', 'Application Reference', 'Documents', 'Consent & Submit'];
+    var current = 0;
+
+    function scrollToForm() {
+        var top = document.getElementById('formProgress').getBoundingClientRect().top + window.pageYOffset - 100;
+        window.scrollTo({ top: top, behavior: 'smooth' });
     }
 
-    statusSelect.addEventListener('change', toggleParent2);
-
-    // Household Income auto-population
-    var incomeP1 = document.getElementById('incomeP1');
-    var incomeP2 = document.getElementById('incomeP2');
-    var household = document.getElementById('householdIncome');
-    var hint = document.getElementById('householdHint');
-
-    function updateHouseholdIncome() {
-        var v1 = parseInt(incomeP1.value) || 0;
-        var isSingle = statusSelect.value === 'single';
-        var v2 = isSingle ? 0 : (parseInt(incomeP2.value) || 0);
-
-        if (v1 === 0) { hint.classList.add('hidden'); return; }
-        if (!isSingle && v2 === 0) { hint.classList.add('hidden'); return; }
-
-        var total = v1 + v2;
-        var best = '';
-        if (total < 5000) best = '5000';
-        else if (total <= 10000) best = '10000';
-        else if (total <= 15000) best = '15000';
-        else if (total <= 20000) best = '20000';
-        else best = '20001';
-
-        household.value = best;
-        hint.classList.remove('hidden');
+    function showStep(i, doScroll) {
+        current = i;
+        steps.forEach(function(s, idx) { s.classList.toggle('hidden', idx !== i); });
+        var last = i === steps.length - 1;
+        prevBtn.classList.toggle('hidden', i === 0);
+        nextBtn.classList.toggle('hidden', last);
+        submitBtn.classList.toggle('hidden', !last);
+        stepLabel.textContent = labels[i] || ('Step ' + (i + 1));
+        stepCount.textContent = 'Step ' + (i + 1) + ' of ' + steps.length;
+        progressBar.style.width = ((i + 1) / steps.length * 100) + '%';
+        if (doScroll) scrollToForm();
     }
 
-    incomeP1.addEventListener('change', updateHouseholdIncome);
-    incomeP2.addEventListener('change', updateHouseholdIncome);
-})();
-
-// "Same as Parent 1" address checkbox
-(function() {
-    var cb = document.getElementById('sameAddress');
-    var p2Addr = document.getElementById('p2Address');
-    var p1Addr = document.getElementById('p1Address');
-
-    cb.addEventListener('change', function() {
-        if (this.checked) {
-            p2Addr.value = p1Addr.value;
-            p2Addr.readOnly = true;
-            p2Addr.classList.add('opacity-60');
-        } else {
-            p2Addr.readOnly = false;
-            p2Addr.classList.remove('opacity-60');
+    function validateStep(i) {
+        var fields = steps[i].querySelectorAll('input, select, textarea');
+        for (var j = 0; j < fields.length; j++) {
+            if (!fields[j].checkValidity()) {
+                fields[j].reportValidity();
+                return false;
+            }
         }
+        return true;
+    }
+
+    nextBtn.addEventListener('click', function() {
+        if (validateStep(current)) showStep(Math.min(current + 1, steps.length - 1), true);
+    });
+    prevBtn.addEventListener('click', function() {
+        showStep(Math.max(current - 1, 0), true);
     });
 
-    p1Addr.addEventListener('input', function() {
-        if (cb.checked) p2Addr.value = p1Addr.value;
-    });
+    showStep(0, false);
 })();
 
-// Course "Others" → show text input
-(function() {
-    var courseSelect = document.getElementById('courseName');
-    var otherDiv = document.getElementById('otherCourseDiv');
-    var otherInput = document.getElementById('otherCourseInput');
-
-    courseSelect.addEventListener('change', function() {
-        if (this.value === 'Others') {
-            otherDiv.classList.remove('hidden');
-            otherInput.setAttribute('required', '');
-        } else {
-            otherDiv.classList.add('hidden');
-            otherInput.removeAttribute('required');
-            otherInput.value = '';
-        }
-    });
-})();
-
-// Form submission → Google Sheets
+// Form submission → Google Sheets + Drive
 document.getElementById('registrationForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     var btn = document.getElementById('submitBtn');
     var errMsg = document.getElementById('submitError');
+    var progress = document.getElementById('submitProgress');
+    var overlay = document.getElementById('loadingOverlay');
+    var loadingExtra = document.getElementById('loadingExtra');
     errMsg.classList.add('hidden');
+    progress.classList.add('hidden');
+    overlay.classList.remove('hidden');
+    loadingExtra.classList.add('hidden');
     btn.disabled = true;
     btn.textContent = 'Submitting...';
 
-    var incomeLabels = { '3000': '< RM5,000', '6500': 'RM5,000 - RM8,000', '9000': 'RM8,001 - RM10,000', '12500': 'RM10,001 - RM15,000', '20000': '> RM15,000' };
-    var householdLabels = { '5000': '< RM5,000', '10000': 'RM5,000 - RM10,000', '15000': 'RM10,001 - RM15,000', '20000': 'RM15,001 - RM20,000', '20001': '> RM20,000' };
+    // After 15s, reassure the user that document upload is still in progress
+    var extraTimer = setTimeout(function() {
+        loadingExtra.classList.remove('hidden');
+    }, 15000);
 
-    var v = function(id) { var el = document.getElementById(id); return el ? el.value : ''; };
-    var sel = function(id) { var el = document.getElementById(id); return el ? el.options[el.selectedIndex]?.text || '' : ''; };
-
-    var data = {
-        maritalStatus: sel('parentalStatus'),
-        p1FullName: v('p1FullName'),
-        p1DOB: v('p1DOB'),
-        p1Gender: sel('p1Gender'),
-        p1IC: v('p1IC'),
-        p1Phone: v('p1Phone'),
-        p1Email: v('p1Email'),
-        p1Address: v('p1Address'),
-        p1Relationship: sel('p1Relationship'),
-        p1EmploymentStatus: sel('p1EmploymentStatus'),
-        p1Occupation: v('p1Occupation'),
-        p1Employer: v('p1Employer'),
-        p1MonthlyIncome: incomeLabels[v('incomeP1')] || v('incomeP1'),
-        p2FullName: v('p2FullName'),
-        p2DOB: v('p2DOB'),
-        p2Gender: sel('p2Gender'),
-        p2IC: v('p2IC'),
-        p2Phone: v('p2Phone'),
-        p2Email: v('p2Email'),
-        p2Address: v('p2Address'),
-        p2Relationship: sel('p2Relationship'),
-        p2EmploymentStatus: sel('p2EmploymentStatus'),
-        p2Occupation: v('p2Occupation'),
-        p2Employer: v('p2Employer'),
-        p2MonthlyIncome: incomeLabels[v('incomeP2')] || v('incomeP2'),
-        householdIncome: householdLabels[v('householdIncome')] || v('householdIncome'),
-        dependents: sel('dependents'),
-        preferredLoan: sel('preferredLoan'),
-        ptptn: sel('ptptn'),
-        studentName: v('studentName'),
-        levelOfStudy: sel('levelOfStudy'),
-        courseName: sel('courseName'),
-        otherCourse: v('otherCourseInput'),
-        intakeDate: v('intakeDate')
-    };
-
-    fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    })
-    .then(function() {
-        window.location.href = 'thank-you.html';
-    })
-    .catch(function() {
+    function fail(msg) {
+        clearTimeout(extraTimer);
+        overlay.classList.add('hidden');
+        errMsg.textContent = msg || 'Something went wrong. Please try again.';
         errMsg.classList.remove('hidden');
         btn.disabled = false;
-        btn.textContent = 'Submit Registration';
+        btn.textContent = 'Submit Application';
+    }
+
+    collectFiles().then(function(files) {
+        var data = {
+            aFullName: v('aFullName'),
+            aGender: radio('aGender'),
+            aNRIC: v('aNRIC'),
+            aRace: sel('aRace'),
+            aMaritalStatus: sel('aMaritalStatus'),
+            aDependents: sel('aDependents'),
+            aPhone: phone60('aPhone'),
+            aEmail: v('aEmail'),
+            aRelationship: radio('aRelationship'),
+            aAddr1: v('aAddr1'),
+            aAddr2: v('aAddr2'),
+            aPostcode: v('aPostcode'),
+            aCity: v('aCity'),
+            aState: sel('aState').toUpperCase(),
+            aOccupation: v('aOccupation'),
+            aEmploymentStatus: sel('aEmploymentStatus'),
+            aEmployer: v('aEmployer'),
+            aEmploymentLength: v('aEmploymentLength'),
+            aEmployerPhone: phone60('aEmployerPhone'),
+            aGrossIncome: v('aGrossIncome'),
+            aNetIncome: v('aNetIncome'),
+            aEmpAddr1: v('aEmpAddr1'),
+            aEmpAddr2: v('aEmpAddr2'),
+            aEmpPostcode: v('aEmpPostcode'),
+            aEmpCity: v('aEmpCity'),
+            aEmpState: sel('aEmpState').toUpperCase(),
+            loanAmount: v('loanAmount'),
+            tenure: v('tenure'),
+            ptptn: radio('ptptn'),
+            studentName: v('studentName'),
+            studentNRIC: v('studentNRIC'),
+            studentContact: phone60('studentContact'),
+            studentEmail: v('studentEmail'),
+            levelOfStudy: sel('levelOfStudy'),
+            intakeDate: v('intakeDate'),
+            courseName: v('courseName'),
+            refName: v('refName'),
+            refContact: phone60('refContact'),
+            refRelationship: sel('refRelationship'),
+            files: files
+        };
+
+        return fetch(SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(data)
+        });
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(result) {
+        if (result && result.status === 'success') {
+            window.location.href = 'thank-you.html';
+        } else {
+            fail((result && result.message) || 'Submission failed. Please try again.');
+        }
+    })
+    .catch(function(err) {
+        fail(typeof err === 'string' ? err : 'Something went wrong. Please try again.');
     });
 });
 </script>
