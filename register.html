@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DCAP | Financing Application</title>
+<title>DCAP | Education Financing Application</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -111,7 +111,7 @@ Back to Home
 <!-- Header -->
 <section class="bg-gradient-to-br from-primary to-primary-container px-4 md:px-8 py-12 md:py-20 text-center">
 <div class="max-w-3xl mx-auto">
-<h1 class="text-3xl md:text-5xl font-black text-white font-headline tracking-tight mb-4">Financing Application</h1>
+<h1 class="text-3xl md:text-5xl font-black text-white font-headline tracking-tight mb-4">Education Financing Application</h1>
 <p class="text-on-primary-container text-base md:text-lg max-w-2xl mx-auto">Complete the application below to apply for your education financing.</p>
 <div class="inline-block bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 mt-4">
 <p class="text-white/90 text-sm font-medium">All fields marked with <span class="text-tertiary-fixed font-bold">*</span> are required.</p>
@@ -216,10 +216,6 @@ Father
 <label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
 <input type="radio" name="aRelationship" value="Mother" class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
 Mother
-</label>
-<label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
-<input type="radio" name="aRelationship" value="Guardian" class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
-Guardian
 </label>
 </div>
 </div>
@@ -368,8 +364,8 @@ Guardian
 </div>
 <div>
 <label class="block text-sm font-semibold text-on-surface mb-1">Tenure</label>
+<p class="text-xs text-on-surface-variant mb-1">Only this tenure option is available for this program.</p>
 <input type="text" id="tenure" value="8 years (96 months)" readonly class="w-full rounded-xl border-outline-variant/40 bg-surface-container px-4 py-3 text-sm text-on-surface-variant cursor-not-allowed"/>
-<p class="text-xs text-on-surface-variant mt-1">Only this tenure option is available for this program.</p>
 </div>
 <div class="md:col-span-2">
 <label class="block text-sm font-semibold text-on-surface mb-2">Will you be applying for PTPTN? <span class="text-error">*</span></label>
@@ -530,7 +526,7 @@ I consent to DCAP collecting and processing my personal data for the purpose of 
 </fieldset>
 
 <!-- Step navigation -->
-<div class="max-w-4xl mx-auto flex flex-col sm:flex-row gap-4">
+<div class="max-w-4xl mx-auto flex flex-col sm:flex-row-reverse gap-4">
 <button type="button" id="nextBtn" class="sm:flex-1 bg-tertiary-fixed text-on-tertiary-fixed py-4 rounded-full font-label font-bold text-base uppercase tracking-wider hover:brightness-110 transition-all editorial-shadow active:scale-[0.98]">Next</button>
 <button id="submitBtn" type="submit" class="hidden sm:flex-1 bg-tertiary-fixed text-on-tertiary-fixed py-4 rounded-full font-label font-bold text-base uppercase tracking-wider hover:brightness-110 transition-all editorial-shadow active:scale-[0.98]">Submit Application</button>
 <button type="button" id="prevBtn" class="hidden sm:flex-1 bg-surface-container text-on-surface py-4 rounded-full font-label font-bold text-base uppercase tracking-wider hover:brightness-95 transition-all active:scale-[0.98]">Back</button>
