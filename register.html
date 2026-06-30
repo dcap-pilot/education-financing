@@ -508,13 +508,11 @@ No
 <input type="file" id="docSubsidyForm" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
 </div>
 </div>
-</fieldset>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- CONSENT & SUBMIT -->
-<!-- ═══════════════════════════════════════ -->
-<fieldset class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 editorial-shadow">
-<div class="flex items-start gap-3 mb-8">
+<!-- Consent sub-section -->
+<div class="border-t border-outline-variant/20 mt-10 pt-8">
+<h3 class="text-lg font-bold font-headline text-primary mb-5">Consent &amp; Declaration</h3>
+<div class="flex items-start gap-3">
 <input type="checkbox" id="consent" required class="mt-1 rounded border-outline-variant/40 text-secondary focus:ring-secondary"/>
 <label for="consent" class="text-sm text-on-surface-variant leading-relaxed">
 I consent to DCAP collecting and processing my personal data for the purpose of this application. I declare that all information provided is true and accurate to the best of my knowledge. I understand that any inaccurate or misleading information may result in the rejection of my application. I consent to DCAP collecting, using, and disclosing my personal data to its partners and affiliates for program-related purposes, and to contact me regarding related updates and marketing communications. <span class="text-error">*</span>
@@ -523,6 +521,7 @@ I consent to DCAP collecting and processing my personal data for the purpose of 
 <p id="submitError" class="text-center text-error text-sm mt-4 hidden">Something went wrong. Please try again.</p>
 <p id="submitProgress" class="text-center text-secondary text-sm mt-4 hidden">Uploading documents, please wait...</p>
 <p class="text-center text-on-surface-variant text-xs mt-4">By submitting, you agree to our terms and conditions.</p>
+</div>
 </fieldset>
 
 <!-- Step navigation -->
@@ -704,7 +703,7 @@ var radio = function(name) { var el = document.querySelector('input[name="' + na
     var stepLabel = document.getElementById('stepLabel');
     var stepCount = document.getElementById('stepCount');
     var progressBar = document.getElementById('progressBar');
-    var labels = ['Applicant Details', 'Employment Details', 'Financing Details', 'Student Details', 'Application Reference', 'Documents', 'Consent & Submit'];
+    var labels = ['Applicant Details', 'Employment Details', 'Financing Details', 'Student Details', 'Application Reference', 'Documents & Consent'];
     var current = 0;
 
     function scrollToForm() {
