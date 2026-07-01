@@ -475,28 +475,25 @@ No
 <input type="file" id="docNRIC" required multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
 </div>
 
-<!-- Proof of Income -->
+<!-- Proof of Income (either / or) -->
 <div class="mt-4 rounded-2xl border border-outline-variant/30 bg-surface-container-low/40 p-4 md:p-5">
 <label class="block text-sm font-semibold text-on-surface mb-1">2) Proof of Income <span class="text-error">*</span></label>
-<p class="text-xs text-on-surface-variant mb-4">3 Months&#39; Payslip is required, plus one of the options below.</p>
-<div class="mb-5">
-<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-white p-4">
-<label class="block text-sm font-semibold text-on-surface mb-3">3 Months&#39; Payslip <span class="text-error">*</span></label>
-<input type="file" id="docPayslip" required multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
-</div>
-</div>
-<p class="text-sm font-semibold text-on-surface mb-2">Plus one of the following: <span class="text-error">*</span></p>
+<p class="text-xs text-on-surface-variant mb-4">Choose one option:</p>
 <div class="flex flex-col sm:flex-row gap-3 sm:gap-8 mb-5">
 <label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
-<input type="radio" name="incomeProof" value="Bank Statement" required class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
-3 Months&#39; Bank Statement
+<input type="radio" name="incomeProof" value="Payslip + Bank Statement" required class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
+3 Months&#39; Payslip + 3 Months&#39; Bank Statement
 </label>
 <label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
 <input type="radio" name="incomeProof" value="EPF Statement" class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
 Latest 12 Months&#39; EPF Statement
 </label>
 </div>
-<div id="incomeBank" class="hidden">
+<div id="incomePayslipBank" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
+<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-white p-4">
+<label class="block text-sm font-semibold text-on-surface mb-3">3 Months&#39; Payslip <span class="text-error">*</span></label>
+<input type="file" id="docPayslip" multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
 <div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-white p-4">
 <label class="block text-sm font-semibold text-on-surface mb-3">3 Months&#39; Bank Statement <span class="text-error">*</span></label>
 <input type="file" id="docBankStatement" multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
@@ -611,24 +608,26 @@ document.querySelectorAll('input[type="tel"]').forEach(function(el) {
     });
 });
 
-// Proof of income: payslip always required; second doc is Bank Statement OR EPF
+// Proof of income: show either (payslip + bank) OR EPF, and toggle required flags
 (function() {
-    var bankBlock = document.getElementById('incomeBank');
+    var payslipBank = document.getElementById('incomePayslipBank');
     var epfBlock = document.getElementById('incomeEPF');
+    var docPayslip = document.getElementById('docPayslip');
     var docBankStatement = document.getElementById('docBankStatement');
     var docEPF = document.getElementById('docEPF');
 
     function apply(choice) {
-        var isBank = choice === 'Bank Statement';
+        var isPB = choice === 'Payslip + Bank Statement';
         var isEPF = choice === 'EPF Statement';
-        bankBlock.classList.toggle('hidden', !isBank);
+        payslipBank.classList.toggle('hidden', !isPB);
         epfBlock.classList.toggle('hidden', !isEPF);
-        docBankStatement.required = isBank;
+        docPayslip.required = isPB;
+        docBankStatement.required = isPB;
         docEPF.required = isEPF;
         // clear the hidden option's files so we don't upload stale selections
-        if (!isBank) { docBankStatement.value = ''; }
+        if (!isPB) { docPayslip.value = ''; docBankStatement.value = ''; }
         if (!isEPF) { docEPF.value = ''; }
-        [docBankStatement, docEPF].forEach(function(el) {
+        [docPayslip, docBankStatement, docEPF].forEach(function(el) {
             el.dispatchEvent(new Event('change'));
         });
     }
