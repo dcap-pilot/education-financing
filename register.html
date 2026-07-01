@@ -470,42 +470,74 @@ No
 <legend class="text-2xl md:text-3xl font-black font-headline text-primary mb-2 float-left w-full">Document Requirements</legend>
 <p class="text-on-surface-variant text-sm mb-8 clear-both">Please upload the following documents. Accepted formats: PDF, JPG, PNG (max 10MB each).</p>
 
-<div class="space-y-5">
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">a) NRIC (Front &amp; Back) <span class="text-error">*</span></label>
-<input type="file" id="docNRIC" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-surface-container-low/40 p-4 md:p-5">
+<label class="block text-sm font-semibold text-on-surface mb-3">1) NRIC / IC (Front &amp; Back) <span class="text-error">*</span></label>
+<input type="file" id="docNRIC" required multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
 </div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">b) 3 Months&#39; Payslip <span class="text-error">*</span></label>
-<input type="file" id="docPayslip" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+
+<!-- Proof of Income -->
+<div class="mt-4 rounded-2xl border border-outline-variant/30 bg-surface-container-low/40 p-4 md:p-5">
+<label class="block text-sm font-semibold text-on-surface mb-1">2) Proof of Income <span class="text-error">*</span></label>
+<p class="text-xs text-on-surface-variant mb-4">3 Months&#39; Payslip is required, plus one of the options below.</p>
+<div class="mb-5">
+<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-white p-4">
+<label class="block text-sm font-semibold text-on-surface mb-3">3 Months&#39; Payslip <span class="text-error">*</span></label>
+<input type="file" id="docPayslip" required multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
 </div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">c) 3 Months&#39; Bank Statement <span class="text-error">*</span></label>
-<input type="file" id="docBankStatement" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
 </div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">d) Latest 12 Months EPF Statement <span class="text-error">*</span></label>
-<input type="file" id="docEPF" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+<p class="text-sm font-semibold text-on-surface mb-2">Plus one of the following: <span class="text-error">*</span></p>
+<div class="flex flex-col sm:flex-row gap-3 sm:gap-8 mb-5">
+<label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
+<input type="radio" name="incomeProof" value="Bank Statement" required class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
+3 Months&#39; Bank Statement
+</label>
+<label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
+<input type="radio" name="incomeProof" value="EPF Statement" class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
+Latest 12 Months&#39; EPF Statement
+</label>
 </div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">e) Letter of Offer (Indicating the Total Fee) <span class="text-error">*</span></label>
-<input type="file" id="docLetterOffer" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+<div id="incomeBank" class="hidden">
+<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-white p-4">
+<label class="block text-sm font-semibold text-on-surface mb-3">3 Months&#39; Bank Statement <span class="text-error">*</span></label>
+<input type="file" id="docBankStatement" multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
 </div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">f) Tuition Fee Structure <span class="text-error">*</span></label>
-<input type="file" id="docFeeStructure" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
 </div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">g) Course Invoice from University <span class="text-error">*</span></label>
-<input type="file" id="docInvoice" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+<div id="incomeEPF" class="hidden">
+<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-white p-4">
+<label class="block text-sm font-semibold text-on-surface mb-3">Latest 12 Months&#39; EPF Statement <span class="text-error">*</span></label>
+<input type="file" id="docEPF" multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
 </div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">h) Authorisation Letter <span class="text-error">*</span></label>
-<input type="file" id="docAuthLetter" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
 </div>
-<div>
-<label class="block text-sm font-semibold text-on-surface mb-1">i) Subsidy Assessment Form <span class="text-error">*</span></label>
-<input type="file" id="docSubsidyForm" required multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-on-surface-variant rounded-xl border border-dashed border-outline-variant/50 bg-surface-container-low p-3 file:mr-4 file:py-2 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+
+<div class="grid grid-cols-2 gap-3 md:gap-5 auto-rows-fr mt-4">
+<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-surface-container-low/40 p-4">
+<label class="block text-sm font-semibold text-on-surface mb-3">3) Letter of Offer (Indicating the Total Fee) <span class="text-error">*</span></label>
+<input type="file" id="docLetterOffer" required multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-surface-container-low/40 p-4">
+<label class="block text-sm font-semibold text-on-surface mb-3">4) Tuition Fee Structure <span class="text-error">*</span></label>
+<input type="file" id="docFeeStructure" required multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-surface-container-low/40 p-4">
+<label class="block text-sm font-semibold text-on-surface mb-3">5) Loan Application Form (Signing Page) <span class="text-error">*</span></label>
+<input type="file" id="docLoanForm" required multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-surface-container-low/40 p-4">
+<label class="block text-sm font-semibold text-on-surface mb-3">6) Product Disclosure Sheet (Signing Page) <span class="text-error">*</span></label>
+<input type="file" id="docPDS" required multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-surface-container-low/40 p-4">
+<label class="block text-sm font-semibold text-on-surface mb-3">7) ARBM Consent Form (Signing Page) <span class="text-error">*</span></label>
+<input type="file" id="docARBM" required multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-surface-container-low/40 p-4">
+<label class="block text-sm font-semibold text-on-surface mb-3">8) DCAP Consent Form (Signing Page) <span class="text-error">*</span></label>
+<input type="file" id="docDCAPConsent" required multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
+</div>
+<div class="flex flex-col rounded-2xl border border-outline-variant/30 bg-surface-container-low/40 p-4">
+<label class="block text-sm font-semibold text-on-surface mb-3">9) Subsidy Assessment Form <span class="text-error">*</span></label>
+<input type="file" id="docSubsidyForm" required multiple accept=".pdf,.jpg,.jpeg,.png" class="doc-input mt-auto block w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-secondary file:text-white hover:file:bg-primary file:cursor-pointer cursor-pointer transition-colors"/>
 </div>
 </div>
 
@@ -576,6 +608,54 @@ document.querySelectorAll('input[type="tel"]').forEach(function(el) {
         var start = this.selectionStart, end = this.selectionEnd;
         this.value = this.value.toUpperCase();
         this.setSelectionRange(start, end);
+    });
+});
+
+// Proof of income: payslip always required; second doc is Bank Statement OR EPF
+(function() {
+    var bankBlock = document.getElementById('incomeBank');
+    var epfBlock = document.getElementById('incomeEPF');
+    var docBankStatement = document.getElementById('docBankStatement');
+    var docEPF = document.getElementById('docEPF');
+
+    function apply(choice) {
+        var isBank = choice === 'Bank Statement';
+        var isEPF = choice === 'EPF Statement';
+        bankBlock.classList.toggle('hidden', !isBank);
+        epfBlock.classList.toggle('hidden', !isEPF);
+        docBankStatement.required = isBank;
+        docEPF.required = isEPF;
+        // clear the hidden option's files so we don't upload stale selections
+        if (!isBank) { docBankStatement.value = ''; }
+        if (!isEPF) { docEPF.value = ''; }
+        [docBankStatement, docEPF].forEach(function(el) {
+            el.dispatchEvent(new Event('change'));
+        });
+    }
+
+    document.querySelectorAll('input[name="incomeProof"]').forEach(function(r) {
+        r.addEventListener('change', function() { apply(this.value); });
+    });
+})();
+
+// Show selected file count / names under each document uploader
+document.querySelectorAll('.doc-input').forEach(function(input) {
+    var status = document.createElement('p');
+    status.className = 'text-xs font-semibold text-secondary mt-2 hidden';
+    input.parentNode.appendChild(status);
+    input.addEventListener('change', function() {
+        var files = this.files;
+        if (!files.length) {
+            status.classList.add('hidden');
+            status.textContent = '';
+            return;
+        }
+        status.classList.remove('hidden');
+        if (files.length === 1) {
+            status.textContent = '✓ ' + files[0].name;
+        } else {
+            status.textContent = '✓ ' + files.length + ' files selected';
+        }
     });
 });
 
@@ -665,8 +745,10 @@ var DOC_FIELDS = [
     { id: 'docEPF', label: '12 Months EPF Statement' },
     { id: 'docLetterOffer', label: 'Letter of Offer' },
     { id: 'docFeeStructure', label: 'Tuition Fee Structure' },
-    { id: 'docInvoice', label: 'Course Invoice' },
-    { id: 'docAuthLetter', label: 'Authorisation Letter' },
+    { id: 'docLoanForm', label: 'Loan Application Form' },
+    { id: 'docPDS', label: 'Product Disclosure Sheet' },
+    { id: 'docARBM', label: 'ARBM Consent Form' },
+    { id: 'docDCAPConsent', label: 'DCAP Consent Form' },
     { id: 'docSubsidyForm', label: 'Subsidy Assessment Form' }
 ];
 
@@ -816,6 +898,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
             refName: v('refName'),
             refContact: phone60('refContact'),
             refRelationship: sel('refRelationship'),
+            incomeProof: radio('incomeProof'),
             files: files
         };
 
