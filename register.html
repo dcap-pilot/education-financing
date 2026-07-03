@@ -363,9 +363,15 @@ Mother
 <input type="number" id="loanAmount" required min="30000" max="200000" step="1000" placeholder="e.g. 50000.00" class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary"/>
 </div>
 <div>
-<label class="block text-sm font-semibold text-on-surface mb-1">Tenure</label>
-<p class="text-xs text-on-surface-variant mb-1">Only this tenure option is available for this program.</p>
-<input type="text" id="tenure" value="8 years (96 months)" readonly class="w-full rounded-xl border-outline-variant/40 bg-surface-container px-4 py-3 text-sm text-on-surface-variant cursor-not-allowed"/>
+<label class="block text-sm font-semibold text-on-surface mb-1">Tenure <span class="text-error">*</span></label>
+<select id="tenure" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
+<option value="" disabled selected>Select</option>
+<option>4 years (48 months)</option>
+<option>5 years (60 months)</option>
+<option>6 years (72 months)</option>
+<option>7 years (84 months)</option>
+<option>8 years (96 months)</option>
+</select>
 </div>
 <div class="md:col-span-2">
 <label class="block text-sm font-semibold text-on-surface mb-2">Will you be applying for PTPTN? <span class="text-error">*</span></label>
