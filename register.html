@@ -187,6 +187,7 @@ Female
 <label class="block text-sm font-semibold text-on-surface mb-1">Number of Dependents <span class="text-error">*</span></label>
 <select id="aDependents" required class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low px-4 py-3 text-sm focus:border-secondary focus:ring-secondary">
 <option value="" disabled selected>Select</option>
+<option>0</option>
 <option>1</option>
 <option>2</option>
 <option>3</option>
@@ -217,7 +218,12 @@ Father
 <input type="radio" name="aRelationship" value="Mother" class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
 Mother
 </label>
+<label class="flex items-center gap-2 text-sm text-on-surface cursor-pointer">
+<input type="radio" name="aRelationship" value="Self (Postgraduate)" class="border-outline-variant/40 text-secondary focus:ring-secondary"/>
+Self (I am the student)
+</label>
 </div>
+<p id="selfNote" class="hidden text-xs text-secondary font-semibold mt-2">&#39;Self&#39; is only for working adults applying for postgraduate studies (Masters, PhD or Other Professional Certifications).</p>
 </div>
 <div class="md:col-span-2">
 <label class="block text-sm font-semibold text-on-surface mb-1">Address Line 1 <span class="text-error">*</span></label>
@@ -423,6 +429,9 @@ No
 <option>Foundation</option>
 <option>Diploma</option>
 <option>Degree</option>
+<option>Masters</option>
+<option>PhD</option>
+<option>Other Professional Certifications</option>
 </select>
 </div>
 <div>
@@ -663,6 +672,69 @@ document.querySelectorAll('.doc-input').forEach(function(input) {
         }
     });
 });
+
+// 'Self' relationship is only for postgraduate levels of study
+(function() {
+    var POSTGRAD = ['Masters', 'PhD', 'Other Professional Certifications'];
+    var level = document.getElementById('levelOfStudy');
+    var selfNote = document.getElementById('selfNote');
+
+    function isSelf() {
+        var r = document.querySelector('input[name="aRelationship"]:checked');
+        return r && r.value.indexOf('Self') === 0;
+    }
+
+    function sync() {
+        var self = isSelf();
+        selfNote.classList.toggle('hidden', !self);
+        Array.prototype.forEach.call(level.options, function(opt) {
+            if (!opt.value) return;
+            opt.disabled = self && POSTGRAD.indexOf(opt.value) === -1;
+        });
+        // clear an invalid existing selection
+        if (self && level.value && POSTGRAD.indexOf(level.value) === -1) {
+            level.value = '';
+        }
+    }
+
+    document.querySelectorAll('input[name="aRelationship"]').forEach(function(r) {
+        r.addEventListener('change', sync);
+    });
+    sync();
+
+    // Auto-fill student details from applicant details when applicant is the student.
+    // Fields stay editable; we only overwrite values we filled ourselves.
+    var COPY_MAP = [
+        ['aFullName', 'studentName'],
+        ['aNRIC', 'studentNRIC'],
+        ['aPhone', 'studentContact'],
+        ['aEmail', 'studentEmail']
+    ];
+
+    function autofillStudent() {
+        if (!isSelf()) return;
+        COPY_MAP.forEach(function(pair) {
+            var src = document.getElementById(pair[0]);
+            var dst = document.getElementById(pair[1]);
+            if (dst.value === '' || dst.dataset.autofilled === 'true') {
+                dst.value = src.value;
+                dst.dataset.autofilled = 'true';
+            }
+        });
+    }
+
+    COPY_MAP.forEach(function(pair) {
+        // keep autofill in sync while applicant details are being typed
+        document.getElementById(pair[0]).addEventListener('input', autofillStudent);
+        // once the user edits a student field manually, stop overwriting it
+        document.getElementById(pair[1]).addEventListener('input', function() {
+            this.dataset.autofilled = 'false';
+        });
+    });
+    document.querySelectorAll('input[name="aRelationship"]').forEach(function(r) {
+        r.addEventListener('change', autofillStudent);
+    });
+})();
 
 // NRIC mask → 6 digits - 2 digits - 4 digits (e.g. 880101-14-5678)
 document.querySelectorAll('.nric-input').forEach(function(el) {
